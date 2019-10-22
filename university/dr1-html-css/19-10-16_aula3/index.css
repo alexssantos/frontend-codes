@@ -1,0 +1,12 @@
+.tamanho{
+    font-size: 80px !important;
+}
+
+.tr {
+    border: 1px solid blue;
+    padding-bottom: 80px !important;
+}
+
+.td {
+    border: 1px solid blue;
+}

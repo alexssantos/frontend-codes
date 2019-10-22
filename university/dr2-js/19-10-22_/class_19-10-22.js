@@ -87,14 +87,12 @@ console.log(`
     Imposto Sobre serviço: ${calcularISS("onibus").toFixed(3)}
 `)
 
-var criarPessoa = Function() {
+// var criarPessoa = Function() {
 
-
-
-    cpf: novoCpf
-        .replace(/\./g, "") // g -> busca recursiva e não somente o primeiro caso
-        .replace("", g)
-}
+//     cpf: novoCpf
+//         .replace(/\./g, "") // g -> busca recursiva e não somente o primeiro caso
+//         .replace("", g)
+// }
 
 
 

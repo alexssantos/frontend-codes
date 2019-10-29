@@ -32,4 +32,5 @@ header img {
     height: 150px;
     /* text-align: center; */
     margin: 0 auto;  /* 0 = up, down. auto=left, right */
+    display: block;
 }

@@ -1,0 +1,35 @@
+/* todos os itens */
+* {
+    /* Se não colocar a unidade o navegador usa o mais comum (px atualmente) */
+    margin: 0; 
+    padding: 0;
+}
+
+/* REM (root): unidade percentual por referencia.
+    ex.: font-size: 0.5rem; será usado 50% do tamanho padrão definido */    
+
+
+/* Por ID */
+div#qualquer {
+
+}
+
+/* Por CLASSE */
+div.qualquer2 {
+
+}
+
+body {
+    background-color: wheat;
+}
+
+header {
+    border: 1px solid red;
+}
+
+header img {
+    border: 1px solid greenyellow;
+    height: 150px;
+    /* text-align: center; */
+    margin: 0 auto;  /* 0 = up, down. auto=left, right */
+}

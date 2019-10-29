@@ -33,4 +33,5 @@ header img {
     /* text-align: center; */
     margin: 0 auto;  /* 0 = up, down. auto=left, right */
     display: block;
+    box-sizing: border-box; /* Zera as infos padroes de borda */
 }

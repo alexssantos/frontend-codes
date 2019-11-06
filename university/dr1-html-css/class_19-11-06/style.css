@@ -1,0 +1,50 @@
+/* todos os itens */
+@import url(
+    https://fonts.googleapis.com/css?family=Liu+Jian+Mao+Cao&display=swap
+);
+@import url(
+    https://fonts.googleapis.com/css?family=Lobster&display=swap
+);
+
+/* REM (root): unidade percentual por referencia.
+    ex.: font-size: 0.5rem; será usado 50% do tamanho padrão definido */    
+
+
+/* Por ID */
+/*div#qualquer {}*/
+
+/* Por CLASSE */
+/*div.qualquer2 {} */
+body {
+    background-color: wheat;
+}
+header {
+    border: 1px solid red;
+    display: block;
+}
+/* TAg img que estiver dentro da tag header */
+header img {
+    border: 1px solid black;
+    border-radius: 75%;
+    height: 300px;
+    width: 300px;
+    /* text-align: center; */
+    margin: 0 auto;  /* 0 = up, down. auto=left, right */
+    display: block;
+    /*box-sizing: border-box; /* Zera as infos padroes de borda */
+}
+h1.on-header {
+    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+    font-family: 'Lobster', cursive;
+    color: steelblue;
+    font-size: 1.75em;
+    text-align: center;
+}
+nav {
+    align-content: center;
+}
+
+form {
+    margin: 0 auto;
+    text-align: center;
+}

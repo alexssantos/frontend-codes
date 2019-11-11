@@ -1,0 +1,1 @@
+Um mini Dojo para fazer uma pagina com os portifolios dos projetos de bloco da turma.

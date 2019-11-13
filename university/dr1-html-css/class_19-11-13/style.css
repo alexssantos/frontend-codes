@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css?family=Liu+Jian+Mao+Cao&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Liu+Jian+Mao+Cao|Lobster&display=swap');
+
+@font-face{
+	font-family: "Madame";
+	src: url('../Documents/Madame.ttf');
+}
+*{
+	box-sizing: border-box;
+}
+body{
+	background-color:#f5f2d0;
+}
+
+header{
+	text-align:center;
+}
+header img{
+	height: 150px;
+	width:150px;
+	margin: 0 auto !important;
+	border-radius:75px;
+	/*transform: rotate(-45deg);*/
+}
+h1.noheader {
+	/*font-family: Verdana, sans-serif;*/
+	font-family: 'Lobster', cursive;
+	color: steelblue;
+	font-size: 1.75em;
+	
+}
+nav{
+	text-align: center;
+	color: steelblue;
+	font-size: 1.2em;
+	background-color: rgba(150,75,0,0.9);
+	border-radius: 20px;
+}
+li {
+	list-style-type: none;
+	display: inline-block;
+	padding: 15px;
+}
+li a{
+	text-decoration: none;
+	padding: 15px;
+}
+li a:visited{
+	color: red;
+}
+li:hover, li a:hover{
+	color: green;
+	background-color: white;
+}
+li a:active{
+	color: pink;
+	font-size: 1.3em;
+}
+div.testFont{
+	font-size: 2em;
+	font-family: "Madame", cursive;
+	margin-top: 50px;
+}
+div.testFont:hover{
+	color: white;
+	background-color: brown;
+}
+div.testFont:first-letter{
+	font-size: 3em;
+	
+}
+input{
+    margin-bottom: 15px;
+}
+
+form{
+    margin: 0 auto;
+    border: 1px solid red;
+    background-color: cadetblue;
+    width: 50%;
+}
+label {
+    width: 50% !important;
+}
+
+
+
+div#qualquer{
+	background-color: #000;
+}
+div.qualquer{
+	background-color: #000;
+}

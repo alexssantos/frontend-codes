@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    
+    <!-- Descriçãod do site -->
+    <meta name="descrição" content="Site para café"/>
+    
+    <!-- SEO - palavras chaves para ranking no google -->
+    <meta name="keywords" content="cafe, itinerante, cafe itinerante, kombi" />
+    
+    <!-- criador da pagina -->
+    <meta name="autor" content="Ronaldo Lanhellas" />
+
+    <!-- Atualiza a pagina automaticamente em X segundos e pode redirecionar apos -->
+    <meta http-equiv="refresh" content="15"/>
+    <meta http-equiv="refresh" content="15; http://google.com.br" />  <!--  // Atualiza a pagina automaticamente em 15s-->
+    
+    <!-- Sem cache da pagina -->    	
+    <meta http-equiv="cache-control" content="no-cache" />
+
+    <title>Kombi Café - Inicial</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />     
+</head>
+<body>
+	<header>
+		<img src="logotipo.png" alt="Logotipo da minha pagina" title="logo do amor" />
+		<h1 class="noheader">Firebosque</h1>
+	</header>
+	<nav>
+		<ul>
+			<li><a href="#">Inicio</a></li>
+			<li><a href="#">Sobre Nós</a></li><!-- Céus -->
+			<li><a href="#">Lojas</a></li>
+			<li><a href="#">Futilidades</a></li>
+			<li><a href="#">Contato</a></li>
+		</ul>
+	</nav>
+
+	<section>
+        <form>
+
+            <div>
+                <div style="width: 39%; border: 1px solid white; display: inline-block;"> <label for="nome" >Nome:</label></div>
+                <div style="width: 59%; display: inline-block"><input type="text" id="nome" name="nome" placeholder="Escreva aqui o seu nome" required /></div>
+            </div>
+
+            <div>
+                    <div style="width: 39%; border: 1px solid white; display: inline-block;"><label for="email">Email:</label></div>
+                    <div style="width: 59%; display: inline-block"><input type="email" id="email" name="email" placeholder="Escreva aqui o seu email" required /></div>
+            </div>
+
+            <div>
+                <label for="empresa">Empresa:</label>
+                <input type="text" id="empresa" name="empresa" placeholder="" value="Transpetro S/A" disabled />
+            </div>
+
+            <div>
+                <label for="cartaoCred">Cartao:</label>
+                <input type="number" id="cartaoCred" name="cartaoCred" placeholder="Digite o numero do seu cartão" maxlength="16" required />
+            </div>
+
+            <div>
+                <label for="comentarios">Comentários:</label>
+                <textarea rows="5" cols="50" placeholder="Comente aqui"  readonly></textarea>
+            </div>
+
+            <div>
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" placeholder="Digite a senha" required />
+                </div>
+
+            <div>
+                <input type="hidden" id="secreto" name="secreto" value="Esse usuário tem dificuldade de digitar no escuro" />
+            </div>
+
+            <div>
+                <label for="hora">Hora</label>
+                <input type="time" id="hora" name="hora"  />
+            </div>
+            <div>
+                <label for="data">Hora</label>
+                <input type="date" id="data" name="data"  />
+            </div>
+            <div>
+                <label for="diahora">Hora</label>
+                <input type="datetime-local" id="diahora" name="diahora"  />
+            </div>
+
+            <input type="submit" value="Enviar" />
+        </form>
+
+    </section>
+
+</body>
+</html>

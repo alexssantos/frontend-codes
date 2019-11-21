@@ -1,34 +1,3 @@
-/*
-
-// CADASTRO
-btnCadastrarUsuario.onclick = () => {
-    firebase.auth().createUserWithEmailAndPassword(
-        email, password
-    ).catch(
-        (error) => {
-        msg.innerText = `${error.code}: ${error.message}`
-        
-        // Handle Errors here.
-        //var errorCode = error.code;
-        //var errorMessage = error.message;
-        // ...
-    });
-}
-
-
-// LOGIN
-btnLoginUsurio.onclick = () => {
-    firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
-        
-        
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // ...
-    });
-}
-*/
-
 /* CONFIG FIREBASE THIAGO
 var firebaseConfig = {
     apiKey: "AIzaSyDDBsXu_XbWQyHtT_YHCQK4IPwTp5LRNBo",
@@ -80,6 +49,19 @@ btnLoginUsuario.onclick = () => {
     )
     var user = firebase.auth().currentUser
     if (user){
-        msg.innerText = `${user.email}`
+        // msg.innerText = `${user.email}`
+        console.log(user)
+        user.updateProfile({
+            displayName:"Alex Santos",
+            phoneNumber: "99999-2222",
+            photoUrl:"http://photos-zuadas-exemplo"
+        })
+        .then(() => {
+            console.log("UPDATE USER FIREBASE SUCESSFULL")
+        })
+        .catch((error) => {
+            msg.innerText = `${error.code}: ${error.message}`
+            console.log("UPDATE USER FIREBASE FAILED")
+        })
     }
 }

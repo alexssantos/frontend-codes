@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="utf-8">
+</head>
+
+<body>
+	<h1>Pureza de funções</h1>
+	<p>Para entendermos melhor o uso de componentes em angular precisamos entender a idéia de funções puras e impuras.
+		Para isso vamos usar os scripts 1oPasso.js e 2oPasso.js e o botão calcular que vai nos retornar 10 números
+		diferentes entre 40 e 100.</p>
+	<label for="qtd">Quantidade</label>
+	<input type="text" id="qtd" value="10"><br>
+	<label for="min">Limite inferior do intervalo</label>
+	<input type="text" id="min" value="40"><br>
+	<label for="max">Limite superior do intervalo</label>
+	<input type="text" id="max" value="100"><br>
+	<button onclick="onBtnClicked()">Calcular</button>
+	<p id="resposta"></p>
+
+	<p>Veja agora o script do 1o passo, nele temos a função que é chamada pelo nosso botão executando todas as tarefas,
+		essa é uma típica função impura.</p>
+
+	<p>Troque agora no arquivo index.html o valor do script src="1oPasso.js" para src="2oPasso.js. Abra o script 2o
+		passo e analise o código."</p>
+
+	<p>No 2o passo a função pura criarVetorAleatório, administra sua atividade de criar um vetor de números aleatórios
+		não repetidos independente de seu contexto. Não importa se os dados vêm de caixas de texto ou do console, a
+		função mantém a sua independência.</p>
+
+	<script src="Passo2.js"></script>
+
+</body>
+
+</html>

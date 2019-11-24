@@ -1,0 +1,13 @@
+input {
+  display: flex;
+  border: 2px coral solid;
+  margin: 5px;
+  padding: 5px;
+}
+
+label {
+  display: flex;
+  border: 2px coral solid;
+  margin: 5px;
+  padding: 5px;
+}

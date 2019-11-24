@@ -17,3 +17,17 @@ function removeElement(elementId) {
 	var element = document.getElementById(elementId);
 	element.parentNode.removeChild(element);
 }
+
+
+// ADD TAG: 
+function funcSetBrTag(parentElement, TAG) {
+	parentElement.appendChild(document.createElement(TAG))
+}
+
+function setMetaCharset(charset = "utf-8") {
+	var metaElement = document.createElement("meta")
+	metaElement.setAttribute("charset", charset)
+	document.head.appendChild(metaElement)
+}
+
+/*

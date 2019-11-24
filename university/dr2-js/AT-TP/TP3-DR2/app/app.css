@@ -1,6 +1,5 @@
 input {
   display: flex;
-  border: 2px coral solid;
   margin: 5px;
   padding: 5px;
 }
@@ -10,4 +9,8 @@ label {
   border: 2px coral solid;
   margin: 5px;
   padding: 5px;
+}
+
+.error {
+  color: red;
 }

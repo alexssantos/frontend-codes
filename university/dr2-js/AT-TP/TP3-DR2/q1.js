@@ -1,23 +1,48 @@
-setMetaCharset()
 var divQ1 = document.getElementById('q1');
 
-//divQ1.className = 'row';
+var labelValMin = funcCreateInputElement("valMin", true, "number", "valor minimo :")
+addSpanToParent(labelValMin, "spanMin")
+divQ1.appendChild(labelValMin)
+var labelValMax = funcCreateInputElement("valMax", true, "number", "valor maximo :")
+addSpanToParent(labelValMax, "spanMax")
+divQ1.appendChild(labelValMax)
 
-var labelValMin = getElementOrCreate(divQ1, "valMin", true, "number", "valor minimo :")
-var labelValMax = getElementOrCreate(divQ1, "valMax", true, "number", "valor maximo :")
+var buttonGen = document.createElement("button")
+buttonGen.appendChild(document.createTextNode("Calcular"))
+divQ1.appendChild(buttonGen)
+
+var resElement = document.createElement("p")
+resElement.setAttribute("id", "resposta")
+divQ1.appendChild(resElement)
+
+
+
+// CALCULAR - CLICK EVENT
+buttonGen.addEventListener("click", () => {
+	let min = document.getElementById("valMin"),
+		max = document.getElementById("valMax"),
+		res = document.getElementById("resposta")
+
+	validateNumberField(min.value, "spanMin")
+	validateNumberField(max.value, "spanMax")
+
+	var minVal = parseInt(min.value)
+	var maxVal = parseInt(max.value)
+
+	if (minVal > maxVal) {
+		res.setAttribute("class", "error")
+		res.textContent = "Erro: valor minimo maior valor maximo"
+		return;
+	}
+	else res.textContent = ""
+
+
+});
+
 
 // ============================================
-// FUNCS 
+// FUNCS HTML
 // ===========================================
-
-function getElementOrCreate(parentElement, idElement, required = false, type = "text", label = "", value = "") {
-	var element = document.getElementById(idElement);
-	if (!element)
-		element = this.funcCreateInputElement(idElement, required, type, label, value)
-
-	parentElement.appendChild(element)
-	return element;
-}
 
 function funcCreateInputElement(idElement, required = false, type = "text", label = "", value = "") {
 	var labelElement = document.createElement("label")
@@ -35,15 +60,22 @@ function funcCreateInputElement(idElement, required = false, type = "text", labe
 	return labelElement;
 }
 
-function funcSetBrTag(element) {
-	element.appendChild(document.createElement("br"))
+function addSpanToParent(parentElement, spanId) {
+	var span = document.createElement("span")
+	span.setAttribute("id", spanId)
+	parentElement.appendChild(span)
 }
 
-function setMetaCharset(charset = "utf-8") {
-	var metaElement = document.createElement("meta")
-	metaElement.setAttribute("charset", charset)
-	document.head.appendChild(metaElement)
+function validateNumberField(number, spanId) {
+	var span = document.getElementById(spanId)
+	if (!number) {
+		span.innerHTML = "Please, set a number."
+	}
+	else span.innerHTML = ""
+
 }
+
+
 
 /*
 addRow()

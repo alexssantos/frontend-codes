@@ -36,7 +36,8 @@ buttonGen.addEventListener("click", () => {
 	}
 	else res.textContent = ""
 
-
+	var numeros = countarEntreValores(minVal, maxVal)
+	res.textContent = "resposta: " + JSON.stringify(numeros)
 });
 
 
@@ -69,13 +70,25 @@ function addSpanToParent(parentElement, spanId) {
 function validateNumberField(number, spanId) {
 	var span = document.getElementById(spanId)
 	if (!number) {
+		span.setAttribute("class", "error")
 		span.innerHTML = "Please, set a number."
 	}
-	else span.innerHTML = ""
-
+	else span.innerHTML = "";
 }
 
+function countarEntreValores(min, max) {
+	console.log(`Executando função pura com argumentos min: ${min} e max: ${max}`);
+	let numeros = {};
+	let i = min + 1;
 
+	while (i < max) {
+		if ((i % 2 == 0) || (i % 3 == 0)) {
+			numeros[i] = true
+		}
+		i++;
+	}
+	return Object.keys(numeros);
+}
 
 /*
 addRow()

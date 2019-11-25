@@ -1,8 +1,12 @@
 var divQ1 = document.getElementById('q1');
 
+divQ1.appendChild(document.createTextNode("Questao 1"))
+divQ1.appendChild(document.createElement("br"))
+
 var labelValMin = funcCreateInputElement("valMin", true, "number", "valor minimo :")
 addSpanToParent(labelValMin, "spanMin")
 divQ1.appendChild(labelValMin)
+
 var labelValMax = funcCreateInputElement("valMax", true, "number", "valor maximo :")
 addSpanToParent(labelValMax, "spanMax")
 divQ1.appendChild(labelValMax)

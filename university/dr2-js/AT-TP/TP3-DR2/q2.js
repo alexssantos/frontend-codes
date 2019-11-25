@@ -1,4 +1,17 @@
+/*	QUESTAO 2
+
+
+
+*/
+
+
+// ===================
+// DRAW ELEMENTS
+// ===================
 var divQ2 = document.getElementById('q2');
+
+divQ2.appendChild(document.createTextNode("Questao 2"))
+divQ2.appendChild(document.createElement("br"))
 
 var labelValMin = funcCreateInputElement("inputFac", true, "number", "Fatorial :")
 addSpanToParent(labelValMin, "spanFac")
@@ -66,7 +79,11 @@ function validateNumberField(number, spanId) {
 	else span.innerHTML = "";
 }
 
-function factorial(value = 1) {
+// ============================================
+// PURE FUNCS
+// ===========================================
+
+function generateRamdonNumbers(qtd, min, max) {
 	if (typeof (+value) != "number")
 		return "Type a number. try again!"
 	if (value <= 0)

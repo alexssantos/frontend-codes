@@ -93,31 +93,3 @@ function countarEntreValores(min, max) {
 	}
 	return Object.keys(numeros);
 }
-
-/*
-addRow()
-
-// -----------------
-function addRow() {
-	//new DIV
-	const div = document.createElement('div');
-	div.className = 'row';
-
-	//inserting on DIV TAGS by TEXT
-	div.innerHTML = `
-	  <input type="text" name="name" value="" />
-	  <input type="text" name="value" value="" />
-	  <label>
-		<input type="checkbox" name="check" value="1" /> Checked?
-	  </label>
-	  <input type="button" value="-" onclick="removeRow(this)" />
-	`;
-
-	//insert on DOM
-	document.getElementById('q1').appendChild(div);
-}
-
-function removeRow(input) {
-	document.getElementById('content').removeChild(input.parentNode);
-}
-*/

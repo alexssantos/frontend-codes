@@ -1,0 +1,56 @@
+.container {
+  background-color: #cccccc;
+  height: 200px;
+
+  /*DEFINIÇÂO*/
+  display: flex;
+
+  /*Direção do Itens*/
+  flex-direction: row;
+  /* default: row --- row | row-reverse | column | column-reverse | reverse */
+
+  /* Permitir Quebra de linha */
+  flex-wrap: wrap;
+  /*default: nowrap --- wrap | nowrap, wrap-reverse */
+
+  /* flex-direction + flex-wrap */
+  /* flex-flow: nowrap; */
+
+  /* ALINHAMENTO horizontal e ESPAÇAMENTO entre os itens */
+  justify-content: center;
+  /*default: flex-start | flex-end | center | space-between | space-around*/
+
+  /* alinhamento vertical */
+  align-items: stretch;
+  /*default: stretch | flex-start (no topo) | flex-end | center | baseline*/
+
+  /**/
+  align-content: center;
+  /*default: flex-start | flex-end | center | space-between | */
+}
+
+.item {
+  background-color: #333333;
+  color: #ffffff;
+  padding: 10px;
+  margin: 5px;
+  width: 20%;
+
+  /* largura em preenchimento - ocupa X vezes de largura */
+  flex-grow: 0;
+  /*default: 0 */
+
+  flex-basis: 10px;
+  flex-shrink: 1;
+
+  /*flex-grow | flex-shrink | flex-basis*/
+  flex: 1 1 10px;
+}
+
+/*Posição individual*/
+.article-01 {
+}
+.article-02 {
+}
+.article-03 {
+}

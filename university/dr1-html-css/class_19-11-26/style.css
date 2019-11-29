@@ -1,0 +1,42 @@
+body {
+  border: white solid 2px;
+  background-color: #a3d5d3;
+}
+.banner {
+  border: orange solid 2px;
+  width: 90%;
+  height: 1000px;
+  display: flex;
+  /*background: no-repeat*/
+  background: no-repeat url(https://66.media.tumblr.com/tumblr_m7vqxcelVH1rwlj3oo1_500.jpg)
+}
+
+.bolota {
+  margin-top: 20px;
+  border: orange solid 2px;
+  width: 150px;
+  height: 150px;
+  background-color: rgba(180, 50, 75, 0.5);
+  border-radius: 50%; /*ou metade da largura ou altura*/
+  /*opacity: 0.9 -> nao usar por falta de compatibilidade. usar rgba()*/
+  display: flex;
+  align-items:center; /*centraliza verticalmente. SO FUNCIONA COM DISPLAY FLEX*/
+  justify-content: center; /*SO FUNCIONA COM DISPLAY FLEX*/
+}
+
+.bolota p.bTexto{
+  border: orange solid 2px;
+  color: white;
+  width: 100px;
+  text-align: center;
+  background-color: blue;
+}
+.bolota p.bTexto2{
+  border: orange solid 2px;
+  color: white;
+  width: 100px;
+  text-align: center;
+  background-color: red;
+  margin-right: -25px;
+  z-index: 2;
+}

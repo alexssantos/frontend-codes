@@ -1,0 +1,6 @@
+aula 26-11-19
+
+- z-index
+- flex acima de flex para alinhar
+- bola tranparente
+- favicon

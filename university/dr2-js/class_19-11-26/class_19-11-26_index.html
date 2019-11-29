@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+    <!-- MATERIALIZE CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- MATERIALIZE JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- FIREBASE JS -->
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-firestore.js"></script>
+</head>
+
+<body>
+    <div id="divLogin">
+        <input type="email" id="iptEmail" placeholder="Email">
+        <input type="password" id="iptSenha" placeholder="Senha">
+        <button class="btn" type="button" id="btnCadastrarUsuario">Cadastrar</button>
+        <button class="btn" type="button" id="btnLoginUsuario">Login</button>
+        <p id="msg"></p>
+    </div>
+    <div id="divMsg" style="display: none;">
+        <p id="p_msg"></p>
+        <input type="text" id="iptMsg" placeholder="Mensagem">
+        <button class="btn" type="button" id="btnEnviar">Enviar</button>
+    </div>
+
+    <!-- JS -->
+    <script src="./class_19-11-26_app.js"></script>
+</body>
+
+</html>

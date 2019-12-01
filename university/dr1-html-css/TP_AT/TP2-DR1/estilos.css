@@ -1,0 +1,124 @@
+/* font ROBOTO */
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+/* font Baloo Bhai */
+@import url('https://fonts.googleapis.com/css?family=Baloo+Bhai&display=swap');
+
+h4, div.cardapio h1 {
+  font-family: 'Baloo Bhai', cursive;  
+  color: rgba(111, 128, 69, 0.5);
+}
+
+h4 {
+  font-weight: bolder;  
+}
+
+body {
+  background-color: #ffe7b9;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1em;
+  padding: 15px;
+}
+
+img.logo {
+  padding: 20px;
+}
+img.banner {
+  width: 100%;
+  width: 100%;
+}
+
+header {  
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  font-size: 0.8em;
+  font-weight: 300;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: black;
+}
+
+div.cardapio h1{
+  text-align: center;
+}
+
+div.cardapio h1{  
+  text-transform: uppercase;  
+}
+
+div.cardapio th{  
+  font-weight: bold;
+}
+
+/* TABLE */
+table {
+  width: 85%;
+}
+
+/* tr { outline: thin solid;}    */
+
+td { 
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+
+
+th.t-desc {
+  width: 700px;
+}
+
+th.t-preco {
+  width: 100px;
+}
+
+th.t-img {
+  table-layout: fixed;  
+  width: 200px;
+}
+
+td img {  
+  text-align: center;
+  height: 200px;
+  width: 200px;    
+}
+
+td.t-desc {
+  text-align: left;
+  vertical-align: top;
+}
+
+td.t-desc h4 {
+  margin: 0px;
+  font-family: "Roboto", sans-serif;  
+  color: rgb(0, 0, 0);
+}
+
+td.t-desc p {
+  margin: 0px;
+  font-family: "Roboto", sans-serif;  
+  color: rgb(0, 0, 0);
+}
+
+td.t-preco {
+  text-align: left;
+  vertical-align: top;
+  margin: 0px;
+  font-family: "Roboto", sans-serif;  
+  color: rgb(0, 0, 0);
+}
+
+.tr-last {
+  background-color: rgba(199, 148, 148, 0.747);
+  padding: 5px;
+  text-align: center;  
+}
+
+.t-desc {
+
+}

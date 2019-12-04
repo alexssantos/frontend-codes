@@ -1,0 +1,49 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	height: 100vh;
+	display: flex;
+	background:khaki;	
+}
+
+#cardboard {
+	width: 640px;
+	height: 640px;	
+	margin: auto; /* centralizar */	
+	display: flex;
+	flex-wrap: wrap;
+	background:blue;
+}
+
+.memory-card {
+	width: calc(25% - 10px);
+	height: 30%;
+	margin: 5px;	
+	background: yellowgreen;
+	position: relative;		
+	transform-style: preserve-3d;
+	transition: 0.3s;
+}
+
+.memory-card:active {
+	transform: scale(0.95);
+}
+
+.memory-card.flip {
+	transform: rotateY(180deg);
+}
+
+.front-face, .back-face {
+	width: 100%;
+	height: 100%;
+	padding: 20px;
+	position: absolute;
+}
+
+.front-face {
+	transform: rotateY(180deg); /*somente SVG*/
+}

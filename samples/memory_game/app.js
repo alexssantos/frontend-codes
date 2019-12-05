@@ -1,16 +1,14 @@
 const cardBoard = document.getElementById('cardboard')
 
-const images = [
-	'001.svg', '002.svg', '003.svg', '004.svg', '005.svg', '006.svg'
-];
+const images = ['001.svg', '002.svg', '003.svg', '004.svg', '005.svg', '006.svg'] //, '007.svg', '008.svg'];
 
 let cardHtml = '';
 
 images.forEach(img => {
 	cardHtml += `
 	<div class="memory-card">
-		<img class="front-face" src="img/${img}">
-		<img class="back-face" src="img/010.svg">
+		<img class="front-face" src="img2/${img}">
+		<img class="back-face" src="img2/default.svg">
 	</div>
 	`
 });

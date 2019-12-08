@@ -6,7 +6,7 @@ let cardHtml = '';
 
 images.forEach(img => {
 	cardHtml += `
-	<div class="memory-card">
+	<div class="memory-card" data-card="${img}">
 		<img class="front-face" src="img2/${img}">
 		<img class="back-face" src="img2/default.svg">
 	</div>
@@ -19,11 +19,21 @@ cardBoard.innerHTML = cardHtml + cardHtml;
 
 //const cards = document.getElementsByClassName("memory-card"); //retorna array HtmlElements
 const cards = document.querySelectorAll(".memory-card"); 	//retorna array
+let choice1, choice2;
 
-function flipCard() {
+
+function playerMove() {
 	this.classList.add('flip')
+
+	if (!choice1) {
+		choice1 = this
+		console.log("choise 1: ", choice1)
+		return
+	}
+	choice2 = this;
+	console.log("choise 2: ", choice2)
 }
 
 cards.forEach((card) => {
-	card.addEventListener('click', flipCard)
+	card.addEventListener('click', playerMove)
 });

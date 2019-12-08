@@ -36,7 +36,7 @@ body {
 
 .memory-card.flip {
 	transform: rotateY(180deg);
-	background: rgb(220, 241, 170);
+	background: #dcf1aa;
 }
 
 .front-face, .back-face {

@@ -1,24 +1,28 @@
-const cardBoard = document.getElementById('cardboard')
+startGame()
 
-const images = ['001.svg', '002.svg', '003.svg', '004.svg', '005.svg', '006.svg'] //, '007.svg', '008.svg'];
-let i = 0;
+function startGame() {
+	const cardBoard = document.getElementById('cardboard')
 
-cardBoard.innerHTML = createCards() + createCards();
+	const images = ['001.svg', '002.svg', '003.svg', '004.svg', '005.svg', '006.svg'] //, '007.svg', '008.svg'];
+	let ixCards = 0;
 
-function createCards() {
-	let cardHtml = '';
-	images.forEach(img => {
-		i++;
-		cardHtml += `
-					<div class="memory-card" id="card${i}" data-card="${img}">
+	//create 2 times = not repeat ID //repeat image
+	cardBoard.innerHTML = createCards() + createCards();
+
+	function createCards() {
+		let cardHtml = '';
+		images.forEach(img => {
+			ixCards++;
+			cardHtml += `
+					<div class="memory-card" id="card${ixCards}" data-card="${img}">
 						<img class="front-face" src="img2/${img}">
 						<img class="back-face" src="img2/default.svg">
 					</div>
 					`
-	});
-	return cardHtml
+		});
+		return cardHtml
+	}
 }
-
 // ============  fim da Renderização HTML
 
 //const cards = document.getElementsByClassName("memory-card"); //retorna array HtmlElements
@@ -76,13 +80,17 @@ function processError() {
 function processHit() {
 	setTimeout(() => { alert("Você acertou!") }, 200)
 
-	//remove click from element
-	choice1.removeEventListener("click", playerMove)
-	choice1.style.background = "#66724b"
-	choice2.removeEventListener("click", playerMove)
-	choice2.style.background = "#66724b"
+	//remove click, change background, set disable from element
+	disableCard(choice1)
+	disableCard(choice2)
 
 	finishMove()
+}
+
+function disableCard(card) {
+	card.removeEventListener("click", playerMove)
+	card.style.background = "#66724b"
+	card.disabled = true;
 }
 
 function finishMove() {
@@ -92,5 +100,25 @@ function finishMove() {
 }
 
 function finishGame() {
+	const cardsCheck = document.querySelectorAll(".memory-card"); 	//retorna array
+
+	let ixDisabled = 0;
+	cardsCheck.forEach(card => {
+		if (card.disabled) ixDisabled++
+	})
+	if (ixDisabled < cardsCheck.length) return
+
+	setTimeout(() => {
+		let restart = confirm("PARABÉNS, VOCÊ VENCEU! \nGOSTARIA DE REINICIAR?")
+
+		if (restart) {
+			lockCards = true
+			startGame()
+		}
+		else {
+			const cardBoard = document.getElementById('cardboard')
+			cardBoard.innerHTML = "";
+		}
+	}, 2000)
 
 }

@@ -23,10 +23,16 @@ function startGame() {
 		return cardHtml
 	}
 }
+
 // ============  fim da Renderização HTML
 
 //const cards = document.getElementsByClassName("memory-card"); //retorna array HtmlElements
 const cards = document.querySelectorAll(".memory-card"); 	//retorna array
+cards.forEach((card) => {
+	let numb = Math.floor(Math.random() * cards.length)
+	card.style.order = numb
+})
+
 let choice1, choice2;
 let lockCards;
 

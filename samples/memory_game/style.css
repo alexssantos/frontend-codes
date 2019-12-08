@@ -11,7 +11,7 @@ body {
 }
 
 #cardboard {
-	border: 1px rosybrown dotted;
+	/* border: 1px rosybrown dotted; */
 	width: 640px;
 	height: 640px;
 	margin: auto; /* centralizar */	

@@ -3,7 +3,7 @@ startGame()
 function startGame() {
 	const cardBoard = document.getElementById('cardboard')
 
-	const images = ['001.svg', '002.svg', '003.svg', '004.svg', '005.svg', '006.svg'] //, '007.svg', '008.svg'];
+	const images = ['001.svg', '002.svg', '003.svg', '004.svg', '005.svg', '006.svg', '007.svg', '008.svg'];
 	let ixCards = 0;
 
 	//create 2 times = not repeat ID //repeat image
@@ -26,7 +26,8 @@ function startGame() {
 
 // ============  fim da Renderização HTML
 
-//const cards = document.getElementsByClassName("memory-card"); //retorna array HtmlElements
+
+
 const cards = document.querySelectorAll(".memory-card"); 	//retorna array
 cards.forEach((card) => {
 	let numb = Math.floor(Math.random() * cards.length)

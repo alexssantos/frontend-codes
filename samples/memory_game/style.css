@@ -13,8 +13,8 @@ body {
 #cardboard {
 	/* border: 1px rosybrown dotted; */
 	width: 640px;
-	height: 640px;
-	margin: auto; /* centralizar */	
+	height: 720px;
+	margin: 10px auto; /* centralizar */	
 	display: flex;
 	flex-wrap: wrap;
 }

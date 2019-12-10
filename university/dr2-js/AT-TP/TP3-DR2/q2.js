@@ -26,7 +26,6 @@ resElement.setAttribute("id", "resposta2")
 divQ2.appendChild(resElement)
 
 
-
 // CALCULAR - CLICK EVENT
 facButton.addEventListener("click", () => {
 	let inputFac = document.getElementById("inputFac"),

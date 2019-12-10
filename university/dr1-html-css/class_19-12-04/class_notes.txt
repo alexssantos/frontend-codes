@@ -1,0 +1,25 @@
+aula 04-12-19
+
+//Historicamente: 
+    - Design Fluido: só alterando Percentagem
+    - Media Type 
+    - Break Point
+    - Media Query (combinação de Media Type e Break Point)
+
+> Media Type
+<link rel="stylesheet" href="style.css" type="text/css" media="screen" />      
+
+
+> Media Type com Break Point 
+    <link rel="stylesheet" href="style.css" type="text/css" media="(min-width: 600px) and (max-width: 800px)" />      
+*Muito usado pelo Bootstrap
+
+
+> Media Query @media
+    chama com @media dentro do arquivo css
+ref: https://www.w3schools.com/css/css_rwd_mediaqueries.asp
+//no AT naõ é obrigatorio mas é recomendavel pq é mais facil
+
+
+//Tecnica de porcentagem é Design responsivo?
+// Não. É Design Fluido.

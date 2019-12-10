@@ -1,7 +1,15 @@
 /*	QUESTAO 3
-
-
-
+Crie um componente que possua um botão criar relatório que quando acionado deve imprimir um relatório de resultados da 
+disciplina javascript para 20 alunos, no formato de tabela.
+	- As notas deverão ser números inteiros entre 0 e 100, criadas aleatoriamente;
+	- Cada aluno deve ser representado por um registro composto por nr e nota
+	- Use uma função construtora chamada Aluno reveja conceitos aqui ou aqui, se quiser ousar um pouco veja classes;
+	- Armazena a nota do aluno como uma variável privada do tipo symbol, use getters e setters para recuperar a informação.
+	- Os registros devem ser armazenados em um array;
+	- A impressão do relatório deve ter:
+		* um título;
+		* os resultados mostrados linha a linha no formato "Aluno nr xx - Nota yy [(A/RE)PROVADO]"; e
+		* um rodapé com estatística final no formato "APROVADOS: XX (xx%)  |  REPROVADOS: YY (yy%)"
 */
 
 const nomes = ['Damian Rutledge', 'Samia Patel', 'Danny Davidson', 'Bhavik Macleod',
@@ -50,21 +58,36 @@ class Aluno {
 
 // CALCULAR - CLICK EVENT
 q3Btn.addEventListener("click", () => {
+	var headerArray = ['NOME', 'NR', 'NOTA', '(A/RE)PROVADO']
+	var columnsLength = headerArray.length
 
+	//table
+	var table = document.getElementById('q3-table')
+	if (!table) {
+		var table = CreateHtmlTableWithHeader(headerArray, columnsLength)
+		divQ3.appendChild(table)
+	}
+	else {
+		var header = table.firstChild
+		table.innerHTML = ''
+		table.appendChild(header)
+	}
+
+	var success = 0;
+	var fail = 0;
 	for (let i = 0; i < 20; i++) {
 		const nota = this.getRandomIntInclusive(0, 100)
 		const name = nomes[i]
 		const nr = `NR-${this.getRandomIntInclusive(1000, 9999)}-${this.getRandomIntInclusive(100, 999)}`
 
-		var aluno = new Aluno(name, nota, nr)
-		console.log(aluno)
-		console.log('NR: ' + nr)
+		if (nota >= 70) success++
+		else fail++
 
-		// tabela 
-		// NOME | NR | NOTA | (A/RE)PROVADO
-		// Aluno nr xx - Nota yy [(A/RE)PROVADO]";
+		var alunoRow = new Aluno(name, nota, nr)
+		table = AddRowAlunoDataInTable(table, alunoRow)
 	}
 
+	setRowClassStatistics(table, success, fail, 20)
 });
 
 
@@ -72,35 +95,71 @@ q3Btn.addEventListener("click", () => {
 // FUNCS HTML
 // ===========================================
 
-function funcCreateInputElement(idElement, required = false, type = "text", label = "", value = "") {
-	var labelElement = document.createElement("label")
-	labelElement.appendChild(document.createTextNode(label))
+function CreateHtmlTableWithHeader(headerData = [], maxColumns = 1) {
 
-	var inputElement = document.createElement("input")
-	//inputElement.setAttribute("id", idElement);
-	inputElement.id = idElement
-	inputElement.required = required
-	inputElement.type = type
-	inputElement.name = value
+	if (!headerData || maxColumns != headerData.length) return null
 
-	labelElement.appendChild(inputElement)
+	var table = document.createElement('table')
+	table.setAttribute('id', 'q3-table')
+	table.style.border = '1px solid black';
 
-	return labelElement;
-}
-
-function addSpanToParent(parentElement, spanId) {
-	var span = document.createElement("span")
-	span.setAttribute("id", spanId)
-	parentElement.appendChild(span)
-}
-
-function validateNumberField(number, spanId) {
-	var span = document.getElementById(spanId)
-	if (!number) {
-		span.setAttribute("class", "error")
-		span.innerHTML = "Please, set a number."
+	//header	
+	var tr = document.createElement('tr')
+	tr.style.border = '1px solid black';
+	for (let i = 0; i < maxColumns; i++) {
+		var th = document.createElement('th')
+		th.style.border = '1px solid black';
+		th.setAttribute('id', `q3-th-${i + 1}`)
+		th.appendChild(document.createTextNode(headerData[i]))
+		tr.appendChild(th)
 	}
-	else span.innerHTML = "";
+	table.appendChild(tr)
+	return table
+}
+
+function AddRowAlunoDataInTable(tableElement, aluno) {
+	// pattern: NOME | NR | NOTA | (A/RE)PROVADO
+	if (!aluno) return tableElement
+
+	var tr = document.createElement('tr')
+	tr.style.border = '1px solid black'
+
+	tr = setRowData(tr, aluno.nome)
+	tr = setRowData(tr, aluno.nr)
+	tr = setRowData(tr, aluno.nota)
+	tr = setRowData(tr, aluno.getResultado())
+
+	tableElement.appendChild(tr)
+
+	return tableElement
+}
+
+function setRowData(trParrent, data, attrPairStr = []) {
+	var td = document.createElement('td')
+	td.style.border = '1px solid black'
+	td.appendChild(document.createTextNode(data))
+
+	for (let i = 0; i < attrPairStr.length; i++) {
+		td.setAttribute(attrPairStr[i][0], attrPairStr[i][1])
+	}
+
+	trParrent.appendChild(td)
+	return trParrent
+}
+
+function setRowClassStatistics(table, success, fail, total) {
+	var tr = document.createElement('tr')
+	tr.style.border = '1px solid black'
+
+	var aproPercent = (success / total) * 100
+	var apr = `APROVADOS: ${success} (${aproPercent}%)`
+	tr = setRowData(tr, apr, [["colspan", "2"]])
+
+	var reproPercent = (fail / total) * 100
+	var rep = `REPROVADOS: ${fail} (${reproPercent}%)`
+	tr = setRowData(tr, rep, [["colspan", "2"]])
+
+	table.appendChild(tr)
 }
 
 // ============================================
@@ -113,3 +172,25 @@ function getRandomIntInclusive(min, max) {
 	deltaInclusive = (max - min + 1)
 	return Math.floor(Math.random() * deltaInclusive) + min;
 }
+
+/*
+TABLE SAMPLE
+
+<table style="width:100%">
+  <tr>	//ROW
+    <th>Firstname</th>	//HEADER
+    <th>Lastname</th>
+    <th>Age</th>
+  </tr>
+  <tr>	//ROW
+    <td>Jill</td>		//DATA
+    <td>Smith</td>
+    <td>50</td>
+  </tr>
+  <tr>
+    <td>Eve</td>
+    <td>Jackson</td>
+    <td>94</td>
+  </tr>
+</table>
+*/

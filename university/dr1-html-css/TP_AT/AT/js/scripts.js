@@ -1,4 +1,5 @@
-$(document).ready(() => {
+$(document).ready(function()
+{
     $('header').load("include/cabecalho.html");
     $('footer').load("include/footer.html");
     $('#sobre').load("include/sobre.html");

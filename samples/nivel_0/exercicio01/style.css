@@ -1,0 +1,21 @@
+* {
+	padding: 0;
+	margin: 0;
+	background: white;
+}
+
+header, nav, div, article, section, aside, footer {
+	background-color: darkgrey;
+	border: black 1px solid;
+}
+
+header {
+	height: 200px;
+}
+
+nav {
+	height: 40px;
+	display: flex;
+	align-items: flex-end;
+	flex-direction: row;
+}

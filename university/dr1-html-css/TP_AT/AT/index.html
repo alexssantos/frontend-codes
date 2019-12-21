@@ -1,69 +1,210 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="author" content="Alex Silva" />
+    <meta name="description" content="Loja de Roupas GK Fashion" />
+    <meta name="keywords" content="Loja de Roupas, GK Fashion" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="estilos.css" />
+    <title>GSK FASHION - Home</title>
+  </head>
+  <body>
+    <div id="container">
+      <header>
+        <h1>
+          <a href="index.html">
+            GK Fashion
+          </a>
+        </h1>
+        <p class="sacola">
+          Nenhum item na sacola de compras
+        </p>
+        <nav class="menu-principal">
+          <ul>
+            <li>
+              <a href="">Sua conta</a>
+            </li>
+            <li>
+              <a href="">Lista de desejos</a>
+            </li>
+            <li>
+              <a href="cartao_fidelidade.html">Cartão fidelidade</a>
+            </li>
+            <li>
+              <a href="sobre.html">Sobre</a>
+            </li>
+            <li>
+              <a href="contato.html">Contato</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <div class="caixa-destaque">
+          <section class="busca">
+            <h2>Busca</h2>
+            <form action="index.html">
+              <input type="search" />
+              <input type="image" alt="Busca" src="arquivos/img/busca.png" />
+            </form>
+          </section>
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<meta name="author" content="Alex Silva">
-	<meta name="description" content="Loja de Roupas GK Fashion">
-	<meta name="keywords" content="Loja de Roupas, GK Fashion">
-	<link rel="stylesheet" href="reset.css">
-	<link rel="stylesheet" href="estilos.css">
-	<title>Home</title>
-	<script src="js/jquery.js"></script>
-	<script src="js/scripts.js"></script>
-</head>
+          <section class="menu-departamentos">
+            <h2>Departamentos</h2>
+            <nav>
+              <ul>
+                <li>
+                  <a href="">Blusas e camisas</a>
+                  <ul>
+                    <li><a href="">Manga curta</a></li>
+                    <li><a href="">Marga comprida</a></li>
+                    <li><a href="">Camisa social</a></li>
+                    <li><a href="">Camisa casual</a></li>
+                  </ul>
+                </li>
+                <li><a href="">Calças</a></li>
+                <li><a href="">Saias</a></li>
+                <li><a href="">Vestidos</a></li>
+                <li><a href="">Sapatos</a></li>
+                <li><a href="">Bolsas e carteiras</a></li>
+                <li><a href="">Acessórios</a></li>
+              </ul>
+            </nav>
+          </section>
+          <img
+            src="arquivos/img/destaque-home.png"
+            alt="Destaques"
+            title="Destaques"
+          />
+        </div>
 
-<body>
-	<div id="container">
-		<header></header>
-		<main>
-			<div class="caixa-destaque">
-				<section class="busca">
-					<h2>Busca</h2>
-					<form action="index.html">
-						<input type="search">
-						<input type="image" src="arquivos/img/busca.png">
-					</form>
-				</section>
-
-				<section class="menu-departamentos">
-					<h2>Departamentos</h2>
-					<nav>
-						<ul>
-							<li>
-								<a href="">Blusas e camisas</a>
-								<ul>
-									<li><a href="">Manga curta</a></li>
-									<li><a href="">Marga comprida</a></li>
-									<li><a href="">Camisa social</a></li>
-									<li><a href="">Camisa casual</a></li>
-								</ul>
-							</li>
-							<li><a href="">Calças</a></li>
-							<li><a href="">Saias</a></li>
-							<li><a href="">Vestidos</a></li>
-							<li><a href="">Sapatos</a></li>
-							<li><a href="">Bolsas e carteiras</a></li>
-							<li><a href="">Acessórios</a></li>
-						</ul>
-					</nav>
-				</section>
-				<img src="arquivos/img/destaque-home.png" alt="Destaques" title="Destaques">
-			</div>
-
-			<div class="caixa">
-				<section id="novidades" class="painel novidades"></section>
-				<section id="mais_vendidos" class="painel mais-vendidos"></section>
-			</div>
-
-			<section id="sobre"></section>
-			<section id="historia"></section>
-			<section id="diferenciais"></section>
-			<footer class="footer-index"></footer>
-		</main>
-	</div>
-</body>
-
+        <div class="caixa">
+          <section id="novidades" class="painel novidades">
+            <h2>Novidades</h2>
+            <ol>
+              <li>
+                <a href="produto.hmtl">
+                  <figure>
+                    <img src="arquivos/img/miniaturas/miniatura1.png" alt="" />
+                    <figcaption></figcaption>
+                  </figure>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <figure>
+                    <img src="arquivos/img/miniaturas/miniatura2.png" alt="" />
+                    <figcaption></figcaption>
+                  </figure>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <figure>
+                    <img src="arquivos/img/miniaturas/miniatura3.png" alt="" />
+                    <figcaption></figcaption>
+                  </figure>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <figure>
+                    <img src="arquivos/img/miniaturas/miniatura4.png" alt="" />
+                    <figcaption></figcaption>
+                  </figure>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <figure>
+                    <img src="arquivos/img/miniaturas/miniatura5.png" alt="" />
+                    <figcaption></figcaption>
+                  </figure>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <figure>
+                    <img src="arquivos/img/miniaturas/miniatura6.png" alt="" />
+                    <figcaption></figcaption>
+                  </figure>
+                </a>
+              </li>
+            </ol>
+          </section>
+          <section id="mais_vendidos" class="painel mais-vendidos">
+            <h2>Mais vendidos</h2>
+            <ol>
+              <li>
+                <a href="produto.hmtl">
+                  <figure>
+                    <img src="arquivos/img/miniaturas/miniatura7.png" alt="" />
+                    <figcaption></figcaption>
+                  </figure>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <figure>
+                    <img src="arquivos/img/miniaturas/miniatura8.png" alt="" />
+                    <figcaption></figcaption>
+                  </figure>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <figure>
+                    <img src="arquivos/img/miniaturas/miniatura9.png" alt="" />
+                    <figcaption></figcaption>
+                  </figure>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <figure>
+                    <img src="arquivos/img/miniaturas/miniatura10.png" alt="" />
+                    <figcaption></figcaption>
+                  </figure>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <figure>
+                    <img src="arquivos/img/miniaturas/miniatura11.png" alt="" />
+                    <figcaption></figcaption>
+                  </figure>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <figure>
+                    <img src="arquivos/img/miniaturas/miniatura12.png" alt="" />
+                    <figcaption></figcaption>
+                  </figure>
+                </a>
+              </li>
+            </ol>
+          </section>
+        </div>
+        <footer class="footer-index">
+          <div class="caixa-footer">
+            <img
+              src="arquivos/img/logo_rodape.png"
+              alt="Logotipo GK Fashion"
+              title="Logotipo GK Fashion"
+            />
+            <p>&copy; Copyright GK Fashion</p>
+            <ul class="social">
+              <li><a href="http://www.facebook.com/gkfashion">facebook</a></li>
+              <li><a href="http://www.twitter.com/gkfashion">twitter</a></li>
+              <li><a href="http://plus.google.com/gkfashion">google+</a></li>
+            </ul>
+          </div>
+        </footer>
+      </main>
+    </div>
+  </body>
 </html>

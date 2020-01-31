@@ -3,8 +3,10 @@
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Alex's Vue Project."/>
     <Page2 msg="Essa é minha Pagina 2 em outro component."/>
-    <p v-if="Math.random() < 0.6">Está de dia / horas: {{horas}}</p>
-    <p v-if="Math.random() >= 0.6 ">Está de Tarde / horas: {{horas}}</p>
+    <p>Numero: {{numero}} </p>
+    <p v-if="numero < 0.6">Está de DIA, {{horas}}</p>
+    <p v-if=" numero>= 0.6 ">Está de TARDE, {{horas}}</p>
+    <p> {{getYearFunc()}}</p>
   </div>
 </template>
 
@@ -20,8 +22,14 @@ export default {
   },
   data() {
     return {
-      horas: new Data(),
-      hasHoras: true
+      horas: new Date().toString(),
+      hasHoras: true,
+      numero: Math.random(),
+    }
+  }, 
+  methods: {
+    getYearFunc(){
+      return new Date().getUTCFullYear()
     }
   }
 }

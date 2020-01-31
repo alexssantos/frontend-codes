@@ -5,6 +5,8 @@
 </template>
 
 <script>
+
+//PAGE
 export default {
   name: 'Page2',
   props: {

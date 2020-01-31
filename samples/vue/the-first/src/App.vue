@@ -3,6 +3,8 @@
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Alex's Vue Project."/>
     <Page2 msg="Essa é minha Pagina 2 em outro component."/>
+    <p v-if="Math.random() < 0.6">Está de dia / horas: {{horas}}</p>
+    <p v-if="Math.random() >= 0.6 ">Está de Tarde / horas: {{horas}}</p>
   </div>
 </template>
 
@@ -15,6 +17,12 @@ export default {
   components: {
     HelloWorld,
     Page2
+  },
+  data() {
+    return {
+      horas: new Data(),
+      hasHoras: true
+    }
   }
 }
 

@@ -92,8 +92,7 @@ function cellClicked(thisCell) {
 	// Se esse quadrado ja foi clicado, ignora
 	if (thisCell.className == "clicked") return;
 
-	// No CSS _array classe "clicked" usa outras cores, revelando o numero
-	thisCell.className = "clicked";
+	this.setClickedCell(thisCell)
 
 	switch (thisCell.innerText) {
 		// Pinta cada numero de uma cor
@@ -130,7 +129,12 @@ function shuffle(_array) {
 	return _array;
 }
 
-function openAll() {
+// No CSS _array classe "clicked" usa outras cores, revelando o numero
+function setClickedCell(cell) {
+	cell.className = "clicked";
+}
+
+function showAllMines() {
 	document.getElementById("cell").innerHTML = message;
 }
 

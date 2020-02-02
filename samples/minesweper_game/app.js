@@ -11,10 +11,10 @@ function setData() {
 	safeMax = 12;
 	safeCount = 0;
 	mineField = [
-		[1,  2, -1,  1],
-		[2, -1,  3,  1],
-		[2, -1,  3,  1],
-		[1,  1,  2, -1] // -1 == bomba
+		[1, 2, -1, 1],
+		[2, -1, 3, 1],
+		[2, -1, 3, 1],
+		[1, 1, 2, -1] // -1 == bomba
 	];
 
 	mineField = shuffle(mineField)
@@ -22,8 +22,8 @@ function setData() {
 
 function drawBoard() {
 	// Converte o array em uma tabela e _array insere no DIV #board
-	// Note o parametro onclick, que deixa cada celula "clicavel"
-	var board = new Array();  
+	// Note: o parametro onclick, que deixa cada celula "clicavel"
+	var board = new Array();
 
 	board.push("<table><tr>");
 	for (var line = 0; line < mineField.length; line++) {
@@ -31,16 +31,17 @@ function drawBoard() {
 		for (var col = 0; col < mineField[line].length; col++) {
 			board.push(`
 				<td
-				    onMouseOver="cellHover(this)"
-				    onMouseOut="cellOut(this)"
-				    onClick="cellClicked(this)">
+					id="cell"
+					onMouseOver="cellHover(this)"
+					onMouseOut="cellOut(this)"
+					onClick="cellClicked(this)">
 						${mineField[line][col]}
 				</td>
 				`
 			);
 		}
 	}
-	board.push("</tr></table>"); 	
+	board.push("</tr></table>");
 	let dashboard = document.getElementsByClassName("dashboard")[0]
 	dashboard.innerHTML = board.join("\n");
 
@@ -68,15 +69,18 @@ function cellClicked(thisCell) {
 
 	// Detecta se algo importante aconteceu
 	if (isDead) {
-		run();
-		setMessage("Vamos tentar de novo");
+		setTimeout(() => {
+			run();
+		}, 1000);
+
+		setMessage("Vamos tentar de novo!");
 		return;
 	} else if (isWinner) {
 		run();
 		setMessage("Vai ganhar de novo?");
 		return;
 	}
-	
+
 	// Se esse quadrado ja foi clicado, ignora
 	if (thisCell.className == "clicked") return;
 
@@ -102,8 +106,8 @@ function cellClicked(thisCell) {
 		isWinner = true;
 		setMessage("PARABENS, voce conseguiu!");
 	} else {
-		setMessage("Beleza! Faltam " + (safeMax-safeCount));
-	}	
+		setMessage("Beleza! Faltam " + (safeMax - safeCount));
+	}
 }
 
 function setMessage(message) {
@@ -111,11 +115,15 @@ function setMessage(message) {
 }
 
 function shuffle(_array) {
-    for (let i = _array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [_array[i], _array[j]] = [_array[j], _array[i]];
-    }
-    return _array;
+	for (let i = _array.length - 1; i > 0; i--) {
+		const j = Math.floor(Math.random() * (i + 1));
+		[_array[i], _array[j]] = [_array[j], _array[i]];
+	}
+	return _array;
+}
+
+function openAll() {
+	document.getElementById("cell").innerHTML = message;
 }
 
 run()

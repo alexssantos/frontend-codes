@@ -4,21 +4,29 @@
 	box-sizing: border-box;
 }
 
+div.dashboard {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin		: 50% auto;
+}
+
 body {
 	font-family	: sans-serif;
 	text-align	: center;
 }
 
 table {	
-	margin		: 50px auto;
+
 	background-color: #aaa;
 	border-collapse	: separate;
 	border-spacing	: 0px;
 }
 
 td {
-	width		: 120px; 
-	line-height	: 120px;
+	width		: 30px; 
+	line-height	: 30px;
 	border		: 2px outset rgb(23, 105, 62);
 	text-align	: center;
 	
@@ -30,11 +38,12 @@ td {
 td.clicked {
 	background-color: #ddd;
 	color		: black;
-	font-size	: 25px;
+	font-size	: 20px;
 	border		: 2px solid #ccc;
 }
 
 p {
+	margin-top: 20px;
 	font-size	: 15px;
 	text-align	: center;
 }

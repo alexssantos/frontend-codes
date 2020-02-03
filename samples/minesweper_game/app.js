@@ -11,7 +11,7 @@ function setData() {
 	safeMax = 12;
 	safeCount = 0;
 
-	// -1 ==> bomba
+	//-1 ==> bomba
 	mineField = [
 		[1, 2, -1, 1, 2],
 		[2, -1, 3, 1, 2],
@@ -25,7 +25,28 @@ function setData() {
 		[1, 1, 2, -1, 2],
 	];
 
+	//mineField = createMineField(5, 5)
 	mineField = shuffle(mineField)
+}
+
+function getValue() {
+	return Math.floor(Math.random() * 3)
+}
+
+function createMineField(columns, lines) {
+	var mineField = [];
+	for (let line = 0; line < lines; line++) {
+		mineField[line] = [];
+		for (let col = 0; col < columns; col++) {
+			mineField[line][col] = {
+				x: col,
+				y: line,
+				value: getValue()
+			}
+		}
+	}
+	console.log(mineField);
+	return mineField
 }
 
 function drawBoard() {
@@ -60,7 +81,7 @@ function drawBoard() {
 
 function cellHover(thisCell) {
 	if (!thisCell.className) {
-		thisCell.style.border = "2px solid yellow";
+		//thisCell.style.border = "2px solid yellow";
 	}
 }
 
@@ -70,7 +91,7 @@ function cellOut(thisCell) {
 	} else {
 		//thisCell.style.border = "2px outset gray";
 		thisCell.style.border = "none";
-		thisCell.style.borderBottom = "2px outset #5198D9;";
+		thisCell.style.borderBottom = "2px outset #5198D9";
 		//"thin|medium|thick|length|initial|inherit"
 		//object.style.borderBottomWidth = "2px"
 	}

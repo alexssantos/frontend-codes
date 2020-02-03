@@ -32,7 +32,7 @@ td {
 	width		: 45px; 
 	line-height	: 45px;
 	border-bottom: 2px outset #5198D9;
-	border-radius: 5px;
+	border-radius: 10px;
 	text-align	: center;
 	/* margin: 20px;  NAO FUNCIONA EM TABELA*/
 	
@@ -47,7 +47,8 @@ td {
 
 
 td:hover {
-	box-shadow: 4px 4px 15px -2px rgb(50, 50, 50);
+	/* offset-x | offset-y | blur-radius | spread-radius | color */
+	box-shadow: 1px 1px 10px -4px rgb(50, 50, 50);
 }
 
 td.clicked {

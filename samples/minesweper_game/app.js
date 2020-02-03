@@ -68,7 +68,11 @@ function cellOut(thisCell) {
 	if (thisCell.className == "clicked") {
 		thisCell.style.border = "2px solid #ccc";
 	} else {
-		thisCell.style.border = "2px outset gray";
+		//thisCell.style.border = "2px outset gray";
+		thisCell.style.border = "none";
+		thisCell.style.borderBottom = "2px outset #5198D9;";
+		//"thin|medium|thick|length|initial|inherit"
+		//object.style.borderBottomWidth = "2px"
 	}
 }
 
@@ -101,8 +105,10 @@ function cellClicked(thisCell) {
 		case "3": thisCell.style.color = "#c00"; break;
 		// Bomba!
 		case "-1":
-			thisCell.innerHTML = '*';
-			thisCell.style.background = "#c00";
+			thisCell.innerHTML = '';
+			thisCell.style.background = "#E4E4E6 url('assets/mine-white.svg') no-repeat center";
+			//thisCell.style.background = "assets/mine.svg";
+			thisCell.style.backgroundSize = "35px 35px";
 			isDead = true;
 			setMessage("MORREU");
 			return;

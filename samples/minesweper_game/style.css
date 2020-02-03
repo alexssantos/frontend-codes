@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+
 * {
 	padding: 0;
 	margin: 0;
@@ -8,17 +10,20 @@ div.dashboard {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	height: 90vh;	
+	height: 100vh;	
 	background-color: rgb(218, 218, 218);
+	/* background-color: #30353C; */
 }
 
 body {
-	font-family	: sans-serif;
-	text-align	: center;
+	font-family	: 'Ubuntu', sans-serif;
+	text-align	: center;	
+	font-weight: 700;
 }
 
 table {	
 	background-color: rgb(218, 218, 218);
+	/* background-color: #30353C; */
 	border-collapse	: separate;
 	border-spacing	: 5px;
 }
@@ -26,10 +31,10 @@ table {
 td {
 	width		: 45px; 
 	line-height	: 45px;
-	border		: 2px outset rgb(23, 105, 62);
+	border-bottom: 2px outset #5198D9;
+	border-radius: 5px;
 	text-align	: center;
 	/* margin: 20px;  NAO FUNCIONA EM TABELA*/
-	border-radius: 5px;
 	
 	/* manha de "esconder" o texto */
 	background-color: #80D6FF;
@@ -48,12 +53,13 @@ td:hover {
 td.clicked {
 	/* 
 	#FFFFFF 
-	#85888C
+	##E4E4E6
 	*/
 	background-color: #ddd;
+	background-image: radial-gradient(#FFFFFF, #E4E4E6);
 	color		: black;
-	font-size	: 20px;
 	border		: 2px solid #ccc;
+	font-size	: 30px;
 }
 
 p {

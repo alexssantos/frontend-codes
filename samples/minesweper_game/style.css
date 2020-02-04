@@ -7,6 +7,7 @@
 
 div.dashboard {
 	display: flex;
+	flex-flow: row wrap;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
@@ -30,6 +31,7 @@ table {
 
 td {
 	width		: 45px; 
+	min-width	: 45px; 
 	line-height	: 45px;
 	border-bottom: 2px outset #5198D9;
 	border-radius: 10px;

@@ -1,4 +1,5 @@
-var safeCount, safeMax, mineField, isDead, isWinner;
+var safeCount, safeMax, mineField, isDead, isWinner, myPoints;
+
 
 function run() {
 	setData()
@@ -12,6 +13,7 @@ function setData() {
 	isDead = false;
 	isWinner = false;
 	safeCount = 0;
+	myPoints = 0;
 
 	//-1 ==> bomba	
 
@@ -42,7 +44,7 @@ function createMineField(columns, lines) {
 			mineField[line][col] = {
 				x: col,
 				y: line,
-				value: getValue(3)
+				value: getValue(4)
 			}
 		}
 	}
@@ -62,11 +64,12 @@ function drawBoard() {
 			let id = `${line}-${col}`
 			board.push(`
 				<td
-					id="${id}"
+					id="cell"
+					data-coord="${id}"
 					onMouseOver="cellHover(this)"
 					onMouseOut="cellOut(this)"
 					onClick="cellClicked(this)">
-						${mineField[line][col].value}
+					.
 				</td>
 				`
 			);
@@ -79,8 +82,16 @@ function drawBoard() {
 	// Texto
 	let status = document.createElement('p')
 	status.setAttribute('id', 'status')
+
+	// Pontos
+	let pontos = document.createElement('p')
+	pontos.setAttribute('id', 'points')
+
+	dashboard.appendChild(pontos)
+	dashboard.appendChild(document.createElement("br"))
 	dashboard.appendChild(status)
 }
+
 
 function cellHover(thisCell) {
 	if (!thisCell.className) {
@@ -102,6 +113,7 @@ function cellOut(thisCell) {
 
 function cellClicked(thisCell) {
 	console.log(thisCell)
+	showAllMines()
 
 	// Detecta se algo importante aconteceu
 	if (isDead) {
@@ -121,18 +133,27 @@ function cellClicked(thisCell) {
 	if (thisCell.className == "clicked") return;
 
 	this.setClickedCell(thisCell)
+	let XY = thisCell.dataset.coord.split("-")
+	console.log("Coord", XY)
 
-	switch (thisCell.innerText) {
+	let line = parseInt(XY[0])
+	let col = parseInt(XY[1])
+	let value = mineField[line][col].value
+	console.log(value);
+
+	updatePoints(value)
+	thisCell.innerText = value;
+	switch (value) {
 		// Pinta cada numero de uma cor
-		case "0":
+		case 0:
 			thisCell.style.color = "#c00";
 			thisCell.innerText = "";
 			break;
-		case "1": thisCell.style.color = "#070"; break;
-		case "2": thisCell.style.color = "#00b"; break;
-		case "3": thisCell.style.color = "#c00"; break;
+		case 1: thisCell.style.color = "#070"; break;
+		case 2: thisCell.style.color = "#00b"; break;
+		case 3: thisCell.style.color = "#c00"; break;
 		// Bomba!
-		case "-1":
+		case -1:
 			thisCell.innerHTML = '';
 			//thisCell.style.background = "#E4E4E6 url('assets/mine-white.svg') no-repeat center";
 			thisCell.style.background = "#efc9c9 url('assets/mine-white.svg') no-repeat center";
@@ -140,7 +161,7 @@ function cellClicked(thisCell) {
 			thisCell.style.backgroundSize = "35px 35px";
 			isDead = true;
 			setMessage("MORREU");
-			return;
+			break;
 	}
 	safeCount++;
 
@@ -154,6 +175,13 @@ function cellClicked(thisCell) {
 
 function setMessage(message) {
 	document.getElementById("status").innerHTML = message;
+}
+
+function updatePoints(plus) {
+	myPoints = (plus > 0) ? myPoints + plus : 0
+
+	let msgPoints = `pontos: ${myPoints}`
+	document.getElementById("points").innerHTML = msgPoints;
 }
 
 function shuffle(_array) {
@@ -170,7 +198,10 @@ function setClickedCell(cell) {
 }
 
 function showAllMines() {
-	document.getElementById("cell").innerHTML = message;
+	mineField.map((val, line) => {
+		console.log("val : ", val)
+		console.log("line : ", line)
+	})
 }
 
 run()

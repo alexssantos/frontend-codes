@@ -1,4 +1,4 @@
-var safeCount, safeMax, mineField, isDead, isWinner, myPoints;
+var safeCount, safeMax, mineField, isDead, isWinner, myPoints, minesMap;
 
 
 function run() {
@@ -14,11 +14,13 @@ function setData() {
 	isWinner = false;
 	safeCount = 0;
 	myPoints = 0;
+	totalMines = Math.round(safeMax * 0.15) //15%
+	minesMap = [];
 
 	//-1 ==> bomba	
 
 	mineField = createMineField(columns, lines)
-	mineField = setMines(mineField, lines)
+	mineField = setMines(mineField, totalMines)
 	mineField = shuffle(mineField)
 }
 
@@ -27,7 +29,10 @@ function setMines(_array, maxMines) {
 	let yMax = _array.length
 
 	for (let i = 0; i < maxMines; i++) {
-		_array[getValue(yMax)][getValue(xMax)].value = -1
+		let line = getValue(yMax)
+		let col = getValue(xMax)
+		_array[line][col].value = -1
+		minesMap.push(`${line}-${col}`);
 	}
 	return _array
 }
@@ -64,7 +69,7 @@ function drawBoard() {
 			let id = `${line}-${col}`
 			board.push(`
 				<td
-					id="cell"
+					id="${id}"
 					data-coord="${id}"
 					onMouseOver="cellHover(this)"
 					onMouseOut="cellOut(this)"
@@ -82,13 +87,14 @@ function drawBoard() {
 	// Texto
 	let status = document.createElement('p')
 	status.setAttribute('id', 'status')
+	status.innerHTML = "Total Jogadas: " + safeMax;
 
 	// Pontos
 	let pontos = document.createElement('p')
 	pontos.setAttribute('id', 'points')
+	pontos.innerHTML = "pontos: 0"
 
 	dashboard.appendChild(pontos)
-	dashboard.appendChild(document.createElement("br"))
 	dashboard.appendChild(status)
 }
 
@@ -112,9 +118,6 @@ function cellOut(thisCell) {
 }
 
 function cellClicked(thisCell) {
-	console.log(thisCell)
-	showAllMines()
-
 	// Detecta se algo importante aconteceu
 	if (isDead) {
 		setTimeout(() => {
@@ -143,6 +146,20 @@ function cellClicked(thisCell) {
 
 	updatePoints(value)
 	thisCell.innerText = value;
+	showCell(thisCell, value)
+	if (isDead) return
+
+	safeCount++;
+
+	if (safeCount == (safeMax - minesMap.length)) { // achou todos os quadrados livres
+		isWinner = true;
+		setMessage("PARABENS, voce conseguiu!");
+	} else {
+		setMessage("Beleza! Faltam " + (safeMax - safeCount));
+	}
+}
+
+function showCell(thisCell, value) {
 	switch (value) {
 		// Pinta cada numero de uma cor
 		case 0:
@@ -154,22 +171,11 @@ function cellClicked(thisCell) {
 		case 3: thisCell.style.color = "#c00"; break;
 		// Bomba!
 		case -1:
-			thisCell.innerHTML = '';
-			//thisCell.style.background = "#E4E4E6 url('assets/mine-white.svg') no-repeat center";
-			thisCell.style.background = "#efc9c9 url('assets/mine-white.svg') no-repeat center";
-			//thisCell.style.background = "assets/mine.svg";
-			thisCell.style.backgroundSize = "35px 35px";
+			setCellMine(thisCell)
 			isDead = true;
 			setMessage("MORREU");
+			showAllMines();
 			break;
-	}
-	safeCount++;
-
-	if (safeCount == safeMax) { // achou todos os quadrados livres
-		isWinner = true;
-		setMessage("PARABENS, voce conseguiu!");
-	} else {
-		setMessage("Beleza! Faltam " + (safeMax - safeCount));
 	}
 }
 
@@ -177,9 +183,14 @@ function setMessage(message) {
 	document.getElementById("status").innerHTML = message;
 }
 
+function setCellMine(htmlElement) {
+	htmlElement.innerHTML = '';
+	htmlElement.style.background = "#efc9c9 url('assets/mine-white.svg') no-repeat center";
+	htmlElement.style.backgroundSize = "35px 35px";
+}
+
 function updatePoints(plus) {
 	myPoints = (plus > 0) ? myPoints + plus : 0
-
 	let msgPoints = `pontos: ${myPoints}`
 	document.getElementById("points").innerHTML = msgPoints;
 }
@@ -198,9 +209,11 @@ function setClickedCell(cell) {
 }
 
 function showAllMines() {
-	mineField.map((val, line) => {
-		console.log("val : ", val)
-		console.log("line : ", line)
+	minesMap.map((val, line) => {
+		let cell = document.getElementById(val)
+		console.log(cell)
+		setClickedCell(cell)
+		setCellMine(cell)
 	})
 }
 

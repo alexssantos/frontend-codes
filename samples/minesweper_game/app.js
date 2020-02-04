@@ -134,7 +134,8 @@ function cellClicked(thisCell) {
 		// Bomba!
 		case "-1":
 			thisCell.innerHTML = '';
-			thisCell.style.background = "#E4E4E6 url('assets/mine-white.svg') no-repeat center";
+			//thisCell.style.background = "#E4E4E6 url('assets/mine-white.svg') no-repeat center";
+			thisCell.style.background = "#efc9c9 url('assets/mine-white.svg') no-repeat center";
 			//thisCell.style.background = "assets/mine.svg";
 			thisCell.style.backgroundSize = "35px 35px";
 			isDead = true;

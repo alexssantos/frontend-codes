@@ -6,31 +6,32 @@ function run() {
 }
 
 function setData() {
+	lines = 10
+	columns = 10
+	safeMax = lines * columns;
 	isDead = false;
 	isWinner = false;
-	safeMax = 12;
 	safeCount = 0;
 
-	//-1 ==> bomba
-	mineField = [
-		[1, 2, -1, 1, 2],
-		[2, -1, 3, 1, 2],
-		[2, -1, 3, 1, 2],
-		[1, 1, 2, -1, 2],
-		[1, 1, 2, -1, 2],
-		[1, 1, 2, -1, 2],
-		[1, 1, 2, -1, 2],
-		[1, 1, 2, -1, 2],
-		[1, 1, 2, -1, 2],
-		[1, 1, 2, -1, 2],
-	];
+	//-1 ==> bomba	
 
-	//mineField = createMineField(5, 5)
+	mineField = createMineField(columns, lines)
+	mineField = setMines(mineField, lines)
 	mineField = shuffle(mineField)
 }
 
-function getValue() {
-	return Math.floor(Math.random() * 3)
+function setMines(_array, maxMines) {
+	let xMax = _array[0].length
+	let yMax = _array.length
+
+	for (let i = 0; i < maxMines; i++) {
+		_array[getValue(yMax)][getValue(xMax)].value = -1
+	}
+	return _array
+}
+
+function getValue(max) {
+	return Math.floor(Math.random() * max)
 }
 
 function createMineField(columns, lines) {
@@ -41,7 +42,7 @@ function createMineField(columns, lines) {
 			mineField[line][col] = {
 				x: col,
 				y: line,
-				value: getValue()
+				value: getValue(3)
 			}
 		}
 	}
@@ -58,13 +59,14 @@ function drawBoard() {
 	for (var line = 0; line < mineField.length; line++) {
 		if (line != 0) board.push("</tr><tr>");
 		for (var col = 0; col < mineField[line].length; col++) {
+			let id = `${line}-${col}`
 			board.push(`
 				<td
-					id="cell"
+					id="${id}"
 					onMouseOver="cellHover(this)"
 					onMouseOut="cellOut(this)"
 					onClick="cellClicked(this)">
-						${mineField[line][col]}
+						${mineField[line][col].value}
 				</td>
 				`
 			);
@@ -74,6 +76,7 @@ function drawBoard() {
 	let dashboard = document.getElementsByClassName("dashboard")[0]
 	dashboard.innerHTML = board.join("\n");
 
+	// Texto
 	let status = document.createElement('p')
 	status.setAttribute('id', 'status')
 	dashboard.appendChild(status)
@@ -121,6 +124,10 @@ function cellClicked(thisCell) {
 
 	switch (thisCell.innerText) {
 		// Pinta cada numero de uma cor
+		case "0":
+			thisCell.style.color = "#c00";
+			thisCell.innerText = "";
+			break;
 		case "1": thisCell.style.color = "#070"; break;
 		case "2": thisCell.style.color = "#00b"; break;
 		case "3": thisCell.style.color = "#c00"; break;

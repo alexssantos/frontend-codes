@@ -2,33 +2,48 @@
 	<div class="wrapper m-4">
 		<div class="container px-0">
 			<div class="top">
-				<img class="img-card" src="@/assets/img/foods/svg/cake.svg" alt="">
+				<img
+					class="img-card"
+					src="@/assets/img/foods/svg/cake.svg"
+					alt=""
+				/>
 			</div>
 			<div class="bottom">
 				<div class="left">
 					<div class="details">
-						<h1 class="m-0 p-0">cake</h1>
-						<p class="m-0 p-0">R$ 250</p>
+						<h1 class="m-0 p-0">{{ cardData.nome ? cardData.nome : "---" }}</h1>
+						<p class="m-0 p-0">R$ {{ cardData.preco }}</p>
 					</div>
-					<div class="buy">
-						<i class="fas fa-cart-plus"></i>						
+					<div class="buy" @click="adicionarItem()">
+						<i class="fas fa-cart-plus"></i>
 					</div>
-				</div>				
+				</div>
 			</div>
 		</div>
 		<div class="inside">
-			<div class="icon">
+			<div class="icon" @click="verDetalhes()">
 				<i class="fas fa-info-circle"></i>
-			</div>			
-		</div> 
+			</div>
+		</div>
 	</div>
 </template>
 
 <script>
 export default {
 	name: "CardProduct",
+	props: ['cardData'],
 	data() {
-		return {};
+		return {			
+		};
+	},
+	methods: {
+		verDetalhes() {
+			if (!this.cardData.id) return;
+			this.$emit("verDetalhes", this.cardData.id);
+		},
+		adicionarItem(){
+			this.$emit("adicionaProd");
+		}
 	}
 };
 </script>
@@ -59,15 +74,15 @@ export default {
 /* TOP CARD */
 .wrapper .container .top {
 	height: 80%;
-	width: 100%;	
+	width: 100%;
 	background-size: 100%;
 
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
-img.img-card {	
-	height: 55%;	
+img.img-card {
+	height: 55%;
 }
 
 /* BOTTOM CARD */
@@ -133,6 +148,6 @@ img.img-card {
 }
 .wrapper .inside:hover .icon {
 	transform: scale(1.5);
-	transition:transform 0.3s ease-in-out;
+	transition: transform 0.3s ease-in-out;
 }
 </style>

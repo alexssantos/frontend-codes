@@ -1,5 +1,5 @@
 <template>
-	<div class="wrapper">
+	<div class="wrapper m-4">
 		<div class="container px-0">
 			<div class="top">
 				<img class="img-card" src="@/assets/img/foods/svg/cake.svg" alt="">

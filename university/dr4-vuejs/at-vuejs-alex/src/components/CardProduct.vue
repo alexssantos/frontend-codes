@@ -11,7 +11,7 @@
 						<p class="m-0 p-0">R$ 250</p>
 					</div>
 					<div class="buy">
-						<i class="fas fa-cart-arrow-down"></i>						
+						<i class="fas fa-cart-plus"></i>						
 					</div>
 				</div>				
 			</div>

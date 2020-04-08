@@ -1,28 +1,30 @@
 <template>
 	<div class="container">
-		<h1>CRIAR PRODUTO</h1>
+		<h1>DETALHES DO PRODUTO</h1>
 		<CardProduct />
 	</div>
 </template>
 
 <script>
-import CardProduct from "./CardProduct.vue";
+import CardProduct from "./CardProduct";
 
 export default {
-	name: "Create",
+name: "Details",
 	components: {
 		CardProduct
 	},
 	props: {},
 	data() {
-		return {};
+		return {}
 	},
 	methods: {
-		criarProduto() {
-			console.log("Produto Criado");
-		}
+		criarProduto(){
+			console.log("Produto Criado");			
+		},		
 	}
-};
+}
 </script>
 
-<style></style>
+<style>
+
+</style>

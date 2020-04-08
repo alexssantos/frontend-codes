@@ -1,5 +1,11 @@
 <template>
 	<div class="page">
+		<button
+					class="btn btn-outline-secondary btn-lg m-3"
+					type="button"					
+				> 
+				Produtos: {{qtdCarrinho}}
+		</button>
 		<div class="container">
 			<div class="d-flex flex-wrap justify-content-center">
 				<div v-for="(card) in produtosLista" :key="card.id" >
@@ -110,6 +116,7 @@ export default {
 		},
 		detalheProduto(id){
 			console.log("Detalhe id", id);
+			//$router.push('create')
 		}
 	}
 

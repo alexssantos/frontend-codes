@@ -1,12 +1,14 @@
 <template>
 	<div class="wrapper">
 		<div class="container px-0">
-			<div class="top"></div>
+			<div class="top">
+				<img class="img-card" src="@/assets/img/foods/svg/cake.svg" alt="">
+			</div>
 			<div class="bottom">
 				<div class="left">
 					<div class="details">
-						<h1 class="m-0 p-0">Chair</h1>
-						<p class="m-0 p-0">£250</p>
+						<h1 class="m-0 p-0">cake</h1>
+						<p class="m-0 p-0">R$ 250</p>
 					</div>
 					<div class="buy">
 						<i class="fas fa-cart-arrow-down"></i>						
@@ -43,6 +45,7 @@ export default {
 	box-shadow: 0;
 	transform: scale(0.95);
 	transition: box-shadow 0.5s, transform 0.5s;
+	border: 1px solid rgb(202, 202, 202);
 }
 .wrapper:hover {
 	transform: scale(1);
@@ -56,10 +59,15 @@ export default {
 /* TOP CARD */
 .wrapper .container .top {
 	height: 80%;
-	width: 100%;
-	background: url(https://s-media-cache-ak0.pinimg.com/736x/49/80/6f/49806f3f1c7483093855ebca1b8ae2c4.jpg)
-		no-repeat center center;	
+	width: 100%;	
 	background-size: 100%;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+img.img-card {	
+	height: 55%;	
 }
 
 /* BOTTOM CARD */

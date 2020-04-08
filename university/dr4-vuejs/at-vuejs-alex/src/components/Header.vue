@@ -7,16 +7,18 @@
 			</b-navbar-brand>
 			<b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
-			<b-navbar-nav>
+			<b-navbar-nav>				
 				<button
 					class="btn btn-outline-secondary mx-2 my-2 my-sm-0"
-					type="button"					
+					type="button"		
+					@click="$router.push('home')"			
 				>
 					<i class="fas fa-home my-auto mx-2"></i>
 				</button>
 				<button
 					class="btn btn-outline-secondary mx-2 my-2 my-sm-0"
 					type="button"
+					@click="$router.push('create')"
 				> 
 				<i class="fas fa-plus my-auto mx-2"></i>
 				Criar Produto

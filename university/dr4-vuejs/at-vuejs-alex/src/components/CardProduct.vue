@@ -38,7 +38,8 @@ export default {
 	methods: {
 		verDetalhes() {
 			if (!this.cardData.id) return;
-			this.$emit("verDetalhes", this.cardData.id);
+			this.$emit("verDetalhes", this.cardData.id);			
+			this.$router.push('details');
 		},
 		adicionarItem(){
 			this.$emit("adicionaProd");
@@ -155,3 +156,5 @@ img.img-card {
 	transition: transform 0.3s ease-in-out;
 }
 </style>
+
+// https://codepen.io/olhilton/pen/dXaqxE

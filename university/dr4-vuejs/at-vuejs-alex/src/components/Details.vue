@@ -1,7 +1,7 @@
 <template>
 	<div class="container">
 		<h1>DETALHES DO PRODUTO</h1>
-		<CardProduct />
+		<CardProduct :cardData="card" />
 	</div>
 </template>
 
@@ -15,8 +15,16 @@ name: "Details",
 	},
 	props: {},
 	data() {
-		return {}
-	},
+		return {
+			"card": {				
+					"id":0,
+					"nome": "Cake",
+					"preco": 279,
+					"categoria": "Doce",
+					"icon": "cake",
+				}
+		}
+	},	
 	methods: {
 		criarProduto(){
 			console.log("Produto Criado");			

@@ -1,10 +1,10 @@
 <template>
 	<div class="wrapper m-4">
 		<div class="container px-0">
-			<div class="top">
+			<div class="top">			
 				<img
 					class="img-card"
-					src="@/assets/img/foods/svg/cake.svg"
+					:src="getImgUrl()"
 					alt=""
 				/>
 			</div>
@@ -12,7 +12,7 @@
 				<div class="left">
 					<div class="details">
 						<h1 class="m-0 p-0">{{ cardData.nome ? cardData.nome : "---" }}</h1>
-						<p class="m-0 p-0">R$ {{ cardData.preco }}</p>
+						<p class="m-0 p-0">R$ {{ cardData.preco ? cardData.preco : "---" }}</p>
 					</div>
 					<div class="buy" @click="adicionarItem()">
 						<i class="fas fa-cart-plus"></i>
@@ -33,8 +33,7 @@ export default {
 	name: "CardProduct",
 	props: ['cardData'],
 	data() {
-		return {			
-		};
+		return {};
 	},
 	methods: {
 		verDetalhes() {
@@ -43,6 +42,11 @@ export default {
 		},
 		adicionarItem(){
 			this.$emit("adicionaProd");
+			console.log("adicionar Item: +1");
+		},
+		getImgUrl(){			
+			let img = require(`@/assets/img/foods/svg/${this.cardData.icon}.svg`);
+			return img;
 		}
 	}
 };

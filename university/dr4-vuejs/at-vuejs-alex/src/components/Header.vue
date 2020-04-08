@@ -7,23 +7,46 @@
 			</b-navbar-brand>
 			<b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
+			<b-navbar-nav>
+				<button
+					class="btn btn-outline-secondary mx-2 my-2 my-sm-0"
+					type="button"					
+				>
+					<i class="fas fa-home my-auto mx-2"></i>
+				</button>
+				<button
+					class="btn btn-outline-secondary mx-2 my-2 my-sm-0"
+					type="button"
+				> 
+				<i class="fas fa-plus my-auto mx-2"></i>
+				Criar Produto
+				</button>				
+			</b-navbar-nav>
+
 			<b-navbar-nav class="ml-auto">
 				<div class="row">
 					<b-nav-form>
-						<b-form-input						
+						<b-form-input
 							class="mr-sm-2"
 							placeholder="Search"
 						></b-form-input>
-						<button size="sm" class="my-2 my-sm-0 btn btn-outline-secondary" type="submit"
-							>Search</button
+						<button
+							size="sm"
+							class="my-2 my-sm-0 btn btn-outline-secondary"
+							type="submit"
 						>
+							Search
+						</button>
 					</b-nav-form>
-					<button class="btn btn-outline-secondary mx-3 my-2 my-sm-0" type="button">
-						<i class="fas fa-shopping-cart my-auto mx-2">						
+					<button
+						class="btn btn-outline-secondary mx-3 my-2 my-sm-0"
+						type="button"
+					>
+						<i class="fas fa-shopping-cart my-auto mx-2">
 							12
 						</i>
 					</button>
-				</div>				
+				</div>
 			</b-navbar-nav>
 		</b-navbar>
 	</div>

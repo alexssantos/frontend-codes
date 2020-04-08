@@ -2,20 +2,18 @@
 	<div id="app">
 		<Header />
 		<b-container>
-			<!-- <router-view /> -->
-			<Home />
+			<router-view />			
 		</b-container>
 	</div>
 </template>
 
 <script>
-import Home from "./components/Home.vue";
-import Header from "./components/Header";
+
+import Header from "./components/Header.vue";
 
 export default {
 	name: "App",
 	components: {
-		Home,
 		Header
 	}
 };
@@ -27,6 +25,6 @@ export default {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-align: center;
-	color: #2c3e50;	
+	color: #2c3e50;
 }
 </style>

@@ -29,40 +29,76 @@ export default {
 			"produtosLista": [
 				{
 					"id":0,
-					"nome": "Bolo",
+					"nome": "Cake",
 					"preco": 279,
 					"categoria": "Doce",
-					"img_url":"/assets/"
+					"icon": "cake",
 				},{
 					"id":1,
-					"nome": "Bolo",
+					"nome": "Apple",
 					"preco": 279,
 					"categoria": "Doce",
-					"img_url":"/assets/"
+					"icon": "apple",
 				},{
 					"id":2,
-					"nome": "Bolo",
+					"nome": "Bread",
 					"preco": 279,
 					"categoria": "Doce",
-					"img_url":"/assets/"
+					"icon": "bread",
 				},{
 					"id":3,
-					"nome": "Bolo",
+					"nome": "Carrot",
 					"preco": 279,
 					"categoria": "Doce",
-					"img_url":"/assets/"
+					"icon": "carrot",
 				},{
 					"id":4,
-					"nome": "Bolo",
+					"nome": "Candy",
 					"preco": 279,
 					"categoria": "Doce",
-					"img_url":"/assets/"
+					"icon": "candy",
 				},{
 					"id":5,
-					"nome": "Bolo",
+					"nome": "Coffee",
 					"preco": 279,
 					"categoria": "Doce",
-					"img_url":"/assets/"
+					"icon": "coffee",
+				},	{
+					"id":6,
+					"nome": "Cake",
+					"preco": 279,
+					"categoria": "Doce",
+					"icon": "cake",
+				},{
+					"id":7,
+					"nome": "Apple",
+					"preco": 279,
+					"categoria": "Doce",
+					"icon": "apple",
+				},{
+					"id":8,
+					"nome": "Bread",
+					"preco": 279,
+					"categoria": "Doce",
+					"icon": "bread",
+				},{
+					"id":9,
+					"nome": "Carrot",
+					"preco": 279,
+					"categoria": "Doce",
+					"icon": "carrot",
+				},{
+					"id":10,
+					"nome": "Candy",
+					"preco": 279,
+					"categoria": "Doce",
+					"icon": "candy",
+				},{
+					"id":11,
+					"nome": "Coffee",
+					"preco": 279,
+					"categoria": "Doce",
+					"icon": "coffee",
 				},
 			]
 		}

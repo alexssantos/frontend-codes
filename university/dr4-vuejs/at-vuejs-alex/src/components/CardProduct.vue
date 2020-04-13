@@ -37,9 +37,16 @@ export default {
 	},
 	methods: {
 		verDetalhes() {
-			if (!this.cardData.id) return;
-			this.$emit("verDetalhes", this.cardData.id);			
-			this.$router.push('details');
+			if (this.cardData.id < 0) return;
+
+			//this.$emit("verDetalhes", this.cardData.id);			
+			this.$router.push({
+				name: 'product', 
+				params: { 
+					id: this.cardData.id, 
+					cardData: this.cardData 
+				}
+			});
 		},
 		adicionarItem(){
 			this.$emit("adicionaProd");
@@ -87,7 +94,7 @@ export default {
 	justify-content: center;
 }
 img.img-card {
-	height: 55%;
+	height: 40%;
 }
 
 /* BOTTOM CARD */

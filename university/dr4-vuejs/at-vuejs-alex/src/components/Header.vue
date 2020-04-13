@@ -35,13 +35,13 @@
 						<button
 							size="sm"
 							class="my-2 my-sm-0 btn btn-outline-secondary"
-							type="submit"
+							type="button"
 						>
 							Search
 						</button>
 					</b-nav-form>
 					<button
-						class="btn btn-outline-secondary mx-3 my-2 my-sm-0"
+						class="btn btn-outline-secondary mx-3 my-2 my-sm-0 btn-cart"
 						type="button"
 					>
 						<i class="fas fa-shopping-cart my-auto mx-2">
@@ -63,8 +63,13 @@ export default {
 <style>
 #header {
 	background-color: #fed4d7;
+	overflow: hidden;
 }
 h3 {
 	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.btn:hover {
+	background-color: #f5758a !important;
+	border-color: #cf6576;
 }
 </style>

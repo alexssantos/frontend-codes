@@ -1,7 +1,7 @@
 <template>
 	<div class="container">
-		<h1>DETALHES DO PRODUTO</h1>
-		<CardProduct :cardData="card" />
+		<h1 @click="verificaCard()">DETALHES DO PRODUTO</h1>
+		<CardProduct :cardData="cardData" />
 	</div>
 </template>
 
@@ -13,22 +13,21 @@ name: "Details",
 	components: {
 		CardProduct
 	},
-	props: {},
+	props: ['id','cardData'],
 	data() {
-		return {
-			"card": {				
-					"id":0,
-					"nome": "Cake",
-					"preco": 279,
-					"categoria": "Doce",
-					"icon": "cake",
-				}
-		}
+		return {}
 	},	
 	methods: {
-		criarProduto(){
-			console.log("Produto Criado");			
+		editarProduto(){
+			console.log("Produto para Editar"); 			
+		},	
+		deletarProduto(){
+			console.log("Produto Deletado"); 			
 		},		
+		verificaCard(){			
+			console.log(this.cardData);
+			console.log(this.id);
+		}
 	}
 }
 </script>

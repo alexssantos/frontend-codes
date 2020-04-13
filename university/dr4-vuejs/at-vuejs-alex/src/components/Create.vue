@@ -1,17 +1,17 @@
 <template>
 	<div class="container">
 		<h1>CRIAR PRODUTO</h1>
-		<CardProduct />
+		
 	</div>
 </template>
 
 <script>
-import CardProduct from "./CardProduct.vue";
+// import CardProduct from "./CardProduct.vue";
 
 export default {
 	name: "Create",
 	components: {
-		CardProduct
+		// CardProduct
 	},
 	props: {},
 	data() {

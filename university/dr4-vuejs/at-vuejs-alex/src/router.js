@@ -9,13 +9,16 @@ export default new VueRouter({
     routes: [
         {
             path: '/',
-            name: 'home',
-            component: Home
+            redirect: '/home',
+            
 		},
 		{
             path: '',
-            name: 'home',
-            component: Home
+            redirect: '/home',            
+		},
+		{
+            path: '*',
+            redirect: '/home',            
 		},
 		{
             path: '/home',
@@ -28,9 +31,10 @@ export default new VueRouter({
             component: Create
 		},
 		{
-            path: '/details',
-            name: 'details',
-            component: Details
+            path: '/product/:id',
+            name: 'product',
+			component: Details,
+			props: true			
         },
         // {
         //     path: '/filme/:id',

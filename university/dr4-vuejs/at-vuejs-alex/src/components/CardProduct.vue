@@ -20,7 +20,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="inside">
+		<div v-if="!isPageDetails()" class="inside">
 			<div class="icon" @click="verDetalhes()">
 				<i class="fas fa-info-circle"></i>
 			</div>
@@ -55,6 +55,9 @@ export default {
 		getImgUrl(){			
 			let img = require(`@/assets/img/foods/svg/${this.cardData.icon}.svg`);
 			return img;
+		},
+		isPageDetails(){
+			return (this.$route.name == 'product');
 		}
 	}
 };

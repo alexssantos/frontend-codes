@@ -41,7 +41,7 @@ export default {
 
 			//this.$emit("verDetalhes", this.cardData.id);			
 			this.$router.push({
-				name: 'product', 
+				name: 'product', 	
 				params: { 
 					id: this.cardData.id, 
 					cardData: this.cardData 

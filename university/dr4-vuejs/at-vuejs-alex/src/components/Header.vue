@@ -11,14 +11,14 @@
 				<button
 					class="btn btn-outline-secondary mx-2 my-2 my-sm-0"
 					type="button"		
-					@click="$router.push('home')"			
+					@click="goToHome()"			
 				>
 					<i class="fas fa-home my-auto mx-2"></i>
 				</button>
 				<button
 					class="btn btn-outline-secondary mx-2 my-2 my-sm-0"
 					type="button"
-					@click="$router.push('create')"
+					@click="createProduct()"
 				> 
 				<i class="fas fa-plus my-auto mx-2"></i>
 				Criar Produto
@@ -55,8 +55,20 @@
 </template>
 
 <script>
+// WARNING: Component Fora do Router-View
 export default {
-	name: "Header"
+	name: "Header",
+	methods: {
+		goToHome(){
+			if (this.$route.name == 'home') return
+						
+			this.$router.push({name: 'home'})			
+		},
+		createProduct(){
+			// WARNING: obj $router dando ruim direto no template
+			this.$router.push({name:'create'})
+		}
+	}
 };
 </script>
 

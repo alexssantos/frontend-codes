@@ -1,6 +1,6 @@
 <template>
 	<div class="container">
-		<h1 @click="verificaCard()">DETALHES DO PRODUTO</h1>
+		<h1 @click="checkPaginaEdicao()">DETALHES DO PRODUTO</h1>
 		<button
 			class="btn btn-outline-secondary btn-lg m-3"
 			type="button"
@@ -19,7 +19,7 @@
 			<div class="col-6">
 				<CardProduct :cardData="cardData" />
 			</div>
-			<div class="col-6">
+			<div class="col-6 my-auto">
 				<b-form-input
 					class="m-3"
 					id="input1"
@@ -32,13 +32,13 @@
 					id="input2"
 					:state="true"
 					placeholder="Valor"
-					disabled
+					:disabled='isEdit'
 				></b-form-input>
 				<b-form-input
 					class="m-3"
 					id="input3"
 					placeholder="Valor"
-					disabled
+					:disabled='isEdit'
 				></b-form-input>
 			</div>
 		</div>
@@ -69,6 +69,9 @@ export default {
 		verificaCard() {
 			console.log(this.cardData);
 			console.log(this.id);
+		},
+		checkPaginaEdicao(){
+			console.log(this.isEdit);
 		}
 	}
 };

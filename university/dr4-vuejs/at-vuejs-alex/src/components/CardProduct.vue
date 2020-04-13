@@ -10,11 +10,11 @@
 			</div>
 			<div class="bottom">
 				<div class="left">
-					<div class="details my-auto p-0">
+					<div class="details m-auto p-0" :class="isPageDetails() ? 'w-100' : ''">
 						<h2 class="m-0 p-0">{{ cardData.nome ? cardData.nome : "---" }}</h2>
 						<p class="m-0 p-0">R$ {{ cardData.preco ? cardData.preco : "---" }}</p>
 					</div>
-					<div class="buy" @click="adicionarItem()">
+					<div v-if="!isPageDetails()" class="buy" @click="adicionarItem()">
 						<i class="fas fa-cart-plus"></i>
 					</div>
 				</div>
@@ -120,12 +120,12 @@ img.img-card {
 	padding: 10px;
 	float: left;	
 	height: 100%;
+	width: 70%;
 	/* kwidth: calc(70% - 40px); */
 	display: flex;
 	flex-flow: column;
 	align-items: center;
 	justify-content: center;
-	width: 70%;
 }
 .wrapper .container .bottom .left .buy {
 	float: right;

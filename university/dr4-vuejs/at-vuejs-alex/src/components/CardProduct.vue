@@ -10,8 +10,8 @@
 			</div>
 			<div class="bottom">
 				<div class="left">
-					<div class="details">
-						<h1 class="m-0 p-0">{{ cardData.nome ? cardData.nome : "---" }}</h1>
+					<div class="details my-auto p-0">
+						<h2 class="m-0 p-0">{{ cardData.nome ? cardData.nome : "---" }}</h2>
 						<p class="m-0 p-0">R$ {{ cardData.preco ? cardData.preco : "---" }}</p>
 					</div>
 					<div class="buy" @click="adicionarItem()">
@@ -117,9 +117,15 @@ img.img-card {
 	float: left;
 }
 .wrapper .container .bottom .left .details {
-	padding: 20px;
-	float: left;
-	width: calc(70% - 40px);
+	padding: 10px;
+	float: left;	
+	height: 100%;
+	/* kwidth: calc(70% - 40px); */
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	justify-content: center;
+	width: 70%;
 }
 .wrapper .container .bottom .left .buy {
 	float: right;

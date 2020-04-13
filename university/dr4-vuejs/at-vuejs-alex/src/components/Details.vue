@@ -15,7 +15,33 @@
 		>
 			EXCLUIR
 		</button>
-		<CardProduct :cardData="cardData" />
+		<div class="row">
+			<div class="col-6">
+				<CardProduct :cardData="cardData" />
+			</div>
+			<div class="col-6">
+				<b-form-input
+					class="m-3"
+					id="input1"
+					v-model="card.nome"
+					:state="true"
+					placeholder="Nome"
+				></b-form-input>
+				<b-form-input
+					class="m-3"
+					id="input2"
+					:state="true"
+					placeholder="Valor"
+					disabled
+				></b-form-input>
+				<b-form-input
+					class="m-3"
+					id="input3"
+					placeholder="Valor"
+					disabled
+				></b-form-input>
+			</div>
+		</div>
 	</div>
 </template>
 
@@ -27,9 +53,11 @@ export default {
 	components: {
 		CardProduct
 	},
-	props: ["id", "cardData"],
+	props: ["id", "cardData", "isEdit"],
 	data() {
-		return {};
+		return {
+			card: this.cardData
+		};
 	},
 	methods: {
 		editarProduto() {

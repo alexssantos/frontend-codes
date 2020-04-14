@@ -102,13 +102,10 @@ export default new Vuex.Store({
 		deletarProduto(state, produtoId){
 			let index = state.produtos.findIndex((prod) => prod.id == produtoId);
 
-			if (index >= 0) {
-				let prod = state.produtos[index];
-				state.produtos.splice(index, 1);		
-			
-				console.log('Produto deletado: ', prod);
-				console.log('Produtos: ', state.produtos);			
-			}
+			if (index >= 0) 
+				state.produtos.splice(index, 1);
+			else 
+				console.log(`Produto ID: ${produtoId} não encontrado!`);
 		}
 	}
 })

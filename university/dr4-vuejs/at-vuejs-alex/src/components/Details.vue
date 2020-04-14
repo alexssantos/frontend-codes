@@ -1,7 +1,8 @@
 <template>
 	<div class="container">
-		<h1 @click="checkPaginaEdicao()">DETALHES DO PRODUTO</h1>
+		<h1> DETALHES DO PRODUTO </h1>
 		<button
+			v-if="!isEdit"
 			class="btn btn-outline-secondary btn-lg m-3"
 			type="button"
 			@click="editarProduto()"
@@ -9,6 +10,7 @@
 			EDITAR
 		</button>
 		<button
+			v-if="!isEdit"
 			class="btn btn-outline-danger btn-lg m-3"
 			type="button"
 			@click="deletarProduto()"
@@ -64,7 +66,11 @@ export default {
 			console.log("Produto para Editar");
 		},
 		deletarProduto() {
-			console.log("Produto Deletado");
+			var toDelete = confirm(`Tem certeza que deseja aparagar Produto: ${this.card.nome}`);
+			if (!toDelete) return
+
+			this.$store.commit('deletarProduto', this.id);
+			this.goToHome();
 		},
 		verificaCard() {
 			console.log(this.cardData);
@@ -73,9 +79,12 @@ export default {
 		checkPaginaEdicao(){
 			console.log(this.isEdit);
 		},
+		goToHome(){
+			this.$router.push({name: 'home'})	
+		},
 		getProduto(){
 			let produto = this.$store.getters.getProdutoById(this.id);
-			console.log("produto: ",produto);
+			console.log("produto: ", produto);
 			return produto;
 		}
 	}

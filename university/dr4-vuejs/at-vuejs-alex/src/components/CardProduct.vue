@@ -10,17 +10,17 @@
 			</div>
 			<div class="bottom">
 				<div class="left">
-					<div class="details m-auto p-0" :class="isPageDetails() ? 'w-100' : ''">
+					<div class="details m-auto p-0" :class="makeSimpleCardProduct() ? 'w-100' : ''">
 						<h2 class="m-0 p-0">{{ cardData.nome ? cardData.nome : "---" }}</h2>
 						<p class="m-0 p-0">R$ {{ cardData.preco ? cardData.preco : "---" }}</p>
 					</div>
-					<div v-if="!isPageDetails()" class="buy" @click="adicionarItem()">
+					<div v-if="!makeSimpleCardProduct()" class="buy" @click="adicionarItem()">
 						<i class="fas fa-cart-plus"></i>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div v-if="!isPageDetails()" class="inside">
+		<div v-if="!makeSimpleCardProduct()" class="inside">
 			<div class="icon" @click="verDetalhes()">
 				<i class="fas fa-info-circle"></i>
 			</div>
@@ -56,8 +56,9 @@ export default {
 			let img = require(`@/assets/img/foods/svg/${this.cardData.icon}.svg`);
 			return img;
 		},
-		isPageDetails(){
-			return (this.$route.name == 'product');
+		makeSimpleCardProduct(){
+			let page = this.$route.name;
+			return (page == 'product') || (page == 'productEdit');
 		}
 	}
 };

@@ -4,7 +4,7 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-	state: {
+	state: {		
 		produtos: [
 			{
 				"id":0,
@@ -79,6 +79,23 @@ export default new Vuex.Store({
 				"categoria": "Doce",
 				"icon": "coffee",
 			},
+		],
+		carrinho: [
+			{
+				produtoId: 0,
+				quantidade: 0
+			}
 		]
-	}
+	},
+	getters: {
+		getProdutos(state){
+			return state.produtos;
+		}
+	},
+	//Mutations são equivalentes a 'Setters'
+	// mutations: {
+	// 	deletarProduto(state, payload){
+
+	// 	}
+	// }
 })

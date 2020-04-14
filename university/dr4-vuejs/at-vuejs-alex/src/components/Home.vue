@@ -22,6 +22,7 @@
 
 <script>
 import CardProduct from "./CardProduct";
+import { mapGetters } from 'vuex';
 
 export default {
 	name: "Home",
@@ -29,11 +30,10 @@ export default {
 		CardProduct
 	},
 	props: {},
-	computed: {
-		produtosLista() {
-			return this.$store.state.produtos
-		}
-	},
+	computed: mapGetters({
+		produtosLista: 'getProdutos'
+	}),
+	//computed: mapGetters(['getProdutos']),
 	data() {
 		return {
 			"qtdCarrinho": 0			

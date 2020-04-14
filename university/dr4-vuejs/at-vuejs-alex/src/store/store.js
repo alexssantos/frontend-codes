@@ -90,12 +90,25 @@ export default new Vuex.Store({
 	getters: {
 		getProdutos(state){
 			return state.produtos;
+		},
+		getProdutoById: (state) => (id) => {
+			let produto = state.produtos.find((prod) => prod.id == id);
+			console.log("produto: " + produto + " id: " + id);
+			return produto;
 		}
 	},
 	//Mutations são equivalentes a 'Setters'
-	// mutations: {
-	// 	deletarProduto(state, payload){
+	mutations: {
+		deletarProduto(state, produtoId){
+			let index = state.produtos.findIndex((prod) => prod.id == produtoId);
 
-	// 	}
-	// }
+			if (index >= 0) {
+				let prod = state.produtos[index];
+				state.produtos.splice(index, 1);		
+			
+				console.log('Produto deletado: ', prod);
+				console.log('Produtos: ', state.produtos);			
+			}
+		}
+	}
 })

@@ -17,7 +17,7 @@
 		</button>
 		<div class="row">
 			<div class="col-6">
-				<CardProduct :cardData="cardData" />
+				<CardProduct :cardData="card" />
 			</div>
 			<div class="col-6 my-auto">
 				<b-form-input
@@ -53,10 +53,10 @@ export default {
 	components: {
 		CardProduct
 	},
-	props: ["id", "cardData", "isEdit"],
+	props: ["id", "isEdit"],
 	data() {
 		return {
-			card: this.cardData
+			card: this.getProduto()
 		};
 	},
 	methods: {
@@ -72,6 +72,11 @@ export default {
 		},
 		checkPaginaEdicao(){
 			console.log(this.isEdit);
+		},
+		getProduto(){
+			let produto = this.$store.getters.getProdutoById(this.id);
+			console.log("produto: ",produto);
+			return produto;
 		}
 	}
 };

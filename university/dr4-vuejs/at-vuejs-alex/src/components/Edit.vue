@@ -11,7 +11,7 @@
 			></b-form-input>
 		</div>
 		<div class="row m-3 d-flex justify-content-between align-items-center">
-			<p class="m-0">Preço: R$</p>
+			<p class="m-0">Preço (R$):</p>
 			<b-form-input
 				class="w-75"
 				id="input2"
@@ -21,22 +21,29 @@
 				placeholder="Digite um Preço (R$)"
 			></b-form-input>
 		</div>
-		<div class="row m-3">
-			<p>Tipo: </p>
+		<div class="row m-3 d-flex justify-content-between align-items-center">
+			<p class="m-0">Tipo: </p>
 			<b-form-radio
 				aria-selected=""
 				class="ml-3"
-				v-model="tipoProduto"
-				name="some-radios"
+				v-model="cardData.tipoProduto"
+				name="radios-comida"
 				value="comida"
 				>Comida</b-form-radio
 			>
 			<b-form-radio
 				class="ml-3"
-				v-model="tipoProduto"
-				name="some-radios"
+				v-model="cardData.tipoProduto"
+				name="radios-bebida"
 				value="bebida"
 				>Bebida</b-form-radio
+			>
+			<b-form-radio
+				class="ml-3"
+				v-model="cardData.tipoProduto"
+				name="radios-outros"
+				value="outros"
+				>Outros</b-form-radio
 			>
 		</div>
 		<div class="row m-3">
@@ -80,8 +87,7 @@ export default {
 	props: ["id", "cardData"],
 	data() {
 		return {
-			tipoProduto: "comida",
-			selectDefault: { value: null, text: "Selecione uma opção." },
+			selectDefault: { value: null, text: " --- " },
 			selectedLetter: null,
 			optoinsAlfabeth: [this.selectDefault],
 			selected: null,
@@ -123,7 +129,7 @@ export default {
 				"z"
 			];
 
-			this.optoinsAlfabeth = [this.selectDefault];
+			this.optoinsAlfabeth = [];
 			alphabet.map(char => {
 				this.optoinsAlfabeth.push({
 					value: char,
@@ -140,8 +146,7 @@ export default {
 				this.selectedLetter
 			);
 
-			let newOptions = [this.selectDefault];
-			opts.map(opt => newOptions.push({ value: opt, text: opt }));
+			let newOptions = opts.map(opt => { return { value: opt, text: opt }});
 			this.options = [...newOptions];
 			this.selected = "";
 		},
@@ -168,7 +173,7 @@ export default {
 				alert("Preencha todos os campos corretamente!");
 				return;
 			}
-			
+
 			var toEdit = confirm(
 				`Tem certeza que deseja editar Produto: \n ${JSON.stringify(
 					this.cardData

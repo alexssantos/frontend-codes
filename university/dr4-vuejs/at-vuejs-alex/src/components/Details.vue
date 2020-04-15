@@ -8,23 +8,38 @@
 				<CardProduct :cardData="card" />
 			</div>
 			<div v-if="!checkEditPage()" class="col-6 my-auto">
-				<label for="input-nome">Nome:</label>
-				<b-form-input
-					class="m-3"
-					id="input-nome"
-					v-model="card.nome"
-					placeholder="Nome"
-					disabled
-				></b-form-input>
-
-				<label for="input-preco">Preço:</label>
-				<b-form-input
-					class="m-3"
-					id="input-preco"
-					v-model="card.preco"
-					placeholder="Valor"
-					disabled
-				></b-form-input>			
+				<div
+					class="row m-3 d-flex justify-content-between align-items-center"
+				>
+					<p class="m-0">Nome:</p>
+					<b-form-input
+						class="w-75"
+						v-model="card.nome"						
+						disabled
+					></b-form-input>
+				</div>
+				<div
+					class="row m-3 d-flex justify-content-between align-items-center"
+				>
+					<p class="m-0">Preço: R$</p>
+					<b-form-input
+						class="w-75"
+						v-model="card.preco"
+						type="number"						
+						disabled
+					></b-form-input>
+				</div>
+				<div
+					class="row m-3 d-flex justify-content-between align-items-center"
+				>
+					<p class="m-0">Tipo:</p>
+					<b-form-input
+						class="w-75"
+						v-model="card.tipoProduto"																	
+						disabled
+					></b-form-input>
+				</div>
+				
 			</div>
 			<div v-if="checkEditPage()" class="col-6 my-auto">
 				<Edit :cardData="card"></Edit>

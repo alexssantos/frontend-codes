@@ -106,6 +106,9 @@ export default new Vuex.Store({
 
 			return total;
 		},
+		getNewIdProduto(state){			
+			return state.produtos[state.produtos.length - 1].id + 1;
+		},
 		getProdutoById: (state) => (id) => {
 			let produto = state.produtos.find((prod) => prod.id == id);
 			console.log("produto: " + produto + " id: " + id);

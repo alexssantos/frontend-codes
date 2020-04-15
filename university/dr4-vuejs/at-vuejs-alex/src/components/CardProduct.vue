@@ -59,7 +59,7 @@ export default {
 		},
 		makeSimpleCardProduct(){
 			let page = this.$route.name;
-			return (page == 'product') || (page == 'productEdit');
+			return (page == 'product') || (page == 'productEdit') || (page == 'create');
 		}
 	}
 };

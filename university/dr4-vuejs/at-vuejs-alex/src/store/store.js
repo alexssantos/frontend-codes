@@ -139,6 +139,9 @@ export default new Vuex.Store({
 					quantidade: 1
 				})
 			}
+		},
+		addProduto(state, produto) {
+			state.produtos.push(produto);	
 		}
 	}
 })

@@ -7,7 +7,7 @@
 				<CardProduct :cardData="card" />
 			</div>		
 			<div class="col-6 my-auto">
-				<Edit :cardData="card"></Edit>
+				<Edit :cardData="card" ref="editComponent"></Edit>
 			</div>
 		</div>
 		<div class="row justify-content-center">
@@ -50,8 +50,13 @@ export default {
 			this.getIdProduto();			
 		},
 		criarProduto() {
+			let isOk = this.$refs.editComponent.isValidateForm();
+			if(!isOk) return;
+
 			console.log("Produto Criado");
-			//this.goToHome();
+			
+			this.$store.commit("addProduto", this.card);			
+			this.goToHome();
 		},				
 		goToHome() {
 			this.$router.push({ name: "home" });

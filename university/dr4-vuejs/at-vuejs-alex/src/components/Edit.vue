@@ -1,7 +1,18 @@
 <template>
 	<div class="col-12 my-auto">
+		<div
+			class="row m-3 d-flex justify-content-between align-items-center"
+			v-if="isCreatePage()"
+		>
+			<p class="m-0">ID:</p>
+			<b-form-input
+				class="w-75"
+				v-model="cardData.id"
+				disabled
+			></b-form-input>
+		</div>
 		<div class="row m-3 d-flex justify-content-between align-items-center">
-			<p class="m-0">Nome: </p>
+			<p class="m-0">Nome:</p>
 			<b-form-input
 				class="w-75"
 				id="input1"
@@ -22,7 +33,7 @@
 			></b-form-input>
 		</div>
 		<div class="row m-3 d-flex justify-content-between align-items-center">
-			<p class="m-0">Tipo: </p>
+			<p class="m-0">Tipo:</p>
 			<b-form-radio
 				aria-selected=""
 				class="ml-3"
@@ -63,7 +74,8 @@
 			>
 			</b-form-select>
 		</div>
-		<button
+		<button 
+			v-if="!isCreatePage()"
 			class="btn btn-outline-primary btn-lg m-3"
 			type="button"
 			@click="salvarEdicaoProduto()"
@@ -71,6 +83,7 @@
 			SALVAR
 		</button>
 		<button
+			v-if="!isCreatePage()"
 			class="btn btn-outline-secondary btn-lg m-3"
 			type="button"
 			@click="goToDetails()"
@@ -146,7 +159,9 @@ export default {
 				this.selectedLetter
 			);
 
-			let newOptions = opts.map(opt => { return { value: opt, text: opt }});
+			let newOptions = opts.map(opt => {
+				return { value: opt, text: opt };
+			});
 			this.options = [...newOptions];
 			this.selected = "";
 		},
@@ -164,20 +179,26 @@ export default {
 				params: paramsObj
 			});
 		},
+		isCreatePage(){
+			return this.$route.name == 'create';
+		},
 		getProduto() {
 			let produto = this.$store.getters.getProdutoById(this.id);
 			return produto;
 		},
 		salvarEdicaoProduto() {
-			if(!this.isValidateForm()){
+			if (!this.isValidateForm()) {
 				alert("Preencha todos os campos corretamente!");
 				return;
 			}
 
 			var toEdit = confirm(
-				`Tem certeza que deseja editar Produto: \n ${JSON.stringify(
-					this.cardData
-				)}`
+				`Tem certeza que deseja salvar o Produto: \n
+				id: ${this.cardData.id}
+				nome: ${this.cardData.nome}
+				preco: ${this.cardData.preco}
+				tipoProduto: ${this.cardData.tipoProduto}
+				icon: ${this.cardData.icon}`
 			);
 
 			if (!toEdit) return;
@@ -191,10 +212,14 @@ export default {
 			return this.cardData.preco > 0;
 		},
 		checkImageForm() {
-			return (this.selected != null && this.selected != "");
+			return this.selected != null && this.selected != "";
 		},
-		isValidateForm(){
-			return (this.checkNomeForm() && this.checkPrecoForm() && this.checkImageForm())
+		isValidateForm() {
+			return (
+				this.checkNomeForm() &&
+				this.checkPrecoForm() &&
+				this.checkImageForm()
+			);
 		}
 	},
 	created() {

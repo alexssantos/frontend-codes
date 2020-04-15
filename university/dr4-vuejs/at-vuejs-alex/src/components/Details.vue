@@ -7,7 +7,7 @@
 			<div class="col-6">
 				<CardProduct :cardData="card" />
 			</div>
-			<div v-if="!checkEditPage()" class="col-6 my-auto">
+			<div v-if="!checkEditPage()" class="col-6 my-auto">				
 				<div
 					class="row m-3 d-flex justify-content-between align-items-center"
 				>

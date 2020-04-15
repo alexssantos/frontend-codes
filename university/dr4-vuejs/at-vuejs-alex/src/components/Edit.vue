@@ -1,20 +1,44 @@
 <template>
 	<div class="col-12 my-auto">
-		<b-form-input
-			class="m-3"
-			id="input1"
-			v-model="cardData.nome"
-			:state="checkNomeForm()"
-			placeholder="Nome"
-		></b-form-input>
-		<b-form-input
-			class="m-3"
-			id="input2"
-			v-model="cardData.preco"
-			type="number"
-			:state="checkPrecoForm()"
-			placeholder="Valor"
-		></b-form-input>
+		<div class="row m-3 d-flex justify-content-between align-items-center">
+			<p class="m-0">Nome: </p>
+			<b-form-input
+				class="w-75"
+				id="input1"
+				v-model="cardData.nome"
+				:state="checkNomeForm()"
+				placeholder="Digite um nome"
+			></b-form-input>
+		</div>
+		<div class="row m-3 d-flex justify-content-between align-items-center">
+			<p class="m-0">Preço: R$</p>
+			<b-form-input
+				class="w-75"
+				id="input2"
+				v-model="cardData.preco"
+				type="number"
+				:state="checkPrecoForm()"
+				placeholder="Digite um Preço (R$)"
+			></b-form-input>
+		</div>
+		<div class="row m-3">
+			<p>Tipo: </p>
+			<b-form-radio
+				aria-selected=""
+				class="ml-3"
+				v-model="tipoProduto"
+				name="some-radios"
+				value="comida"
+				>Comida</b-form-radio
+			>
+			<b-form-radio
+				class="ml-3"
+				v-model="tipoProduto"
+				name="some-radios"
+				value="bebida"
+				>Bebida</b-form-radio
+			>
+		</div>
 		<div class="row m-3">
 			<b-form-select
 				class="col-3 mr-3"
@@ -56,11 +80,12 @@ export default {
 	props: ["id", "cardData"],
 	data() {
 		return {
-			selectDefault: { value: null, text: "Selecione uma opção."},
+			tipoProduto: "comida",
+			selectDefault: { value: null, text: "Selecione uma opção." },
 			selectedLetter: null,
 			optoinsAlfabeth: [this.selectDefault],
 			selected: null,
-			options: [ this.selectDefault]
+			options: [this.selectDefault]
 		};
 	},
 	methods: {
@@ -69,15 +94,42 @@ export default {
 			this.getListImages();
 		},
 		getAlphabetArray() {
-			let alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-			
-			this.optoinsAlfabeth = [this.selectDefault]
-			alphabet.map((char) => {
+			let alphabet = [
+				"a",
+				"b",
+				"c",
+				"d",
+				"e",
+				"f",
+				"g",
+				"h",
+				"i",
+				"j",
+				"k",
+				"l",
+				"m",
+				"n",
+				"o",
+				"p",
+				"q",
+				"r",
+				"s",
+				"t",
+				"u",
+				"v",
+				"w",
+				"x",
+				"y",
+				"z"
+			];
+
+			this.optoinsAlfabeth = [this.selectDefault];
+			alphabet.map(char => {
 				this.optoinsAlfabeth.push({
 					value: char,
 					text: char
-				})
-			});		
+				});
+			});
 		},
 		getListImages() {
 			if (!this.selectedLetter) {
@@ -86,16 +138,17 @@ export default {
 
 			let opts = this.$store.getters.getImagesProdutoByLetter(
 				this.selectedLetter
-			);			
+			);
 
 			let newOptions = [this.selectDefault];
 			opts.map(opt => newOptions.push({ value: opt, text: opt }));
 			this.options = [...newOptions];
+			this.selected = "";
 		},
 		selectImg() {
 			if (!this.selected) return;
 
-			this.cardData.icon = this.selected;			
+			this.cardData.icon = this.selected;
 		},
 		goToDetails() {
 			this.goToPage("product", { id: this.cardData.id });
@@ -111,6 +164,11 @@ export default {
 			return produto;
 		},
 		salvarEdicaoProduto() {
+			if(!this.isValidateForm()){
+				alert("Preencha todos os campos corretamente!");
+				return;
+			}
+			
 			var toEdit = confirm(
 				`Tem certeza que deseja editar Produto: \n ${JSON.stringify(
 					this.cardData
@@ -120,15 +178,18 @@ export default {
 			if (!toEdit) return;
 
 			this.goToDetails();
-		},		
-		checkNomeForm(){
-			return (this.cardData.nome !=  "" && this.cardData.nome.length > 0);
 		},
-		checkPrecoForm(){
-			return (this.cardData.preco > 0);
+		checkNomeForm() {
+			return this.cardData.nome != "" && this.cardData.nome.length > 0;
 		},
-		checkImageForm(){
-			return (this.selected != null);
+		checkPrecoForm() {
+			return this.cardData.preco > 0;
+		},
+		checkImageForm() {
+			return (this.selected != null && this.selected != "");
+		},
+		isValidateForm(){
+			return (this.checkNomeForm() && this.checkPrecoForm() && this.checkImageForm())
 		}
 	},
 	created() {

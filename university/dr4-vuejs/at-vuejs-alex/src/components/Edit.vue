@@ -4,7 +4,7 @@
 			class="m-3"
 			id="input1"
 			v-model="cardData.nome"
-			:state="true"
+			:state="checkNomeForm()"
 			placeholder="Nome"
 		></b-form-input>
 		<b-form-input
@@ -12,7 +12,7 @@
 			id="input2"
 			v-model="cardData.preco"
 			type="number"
-			:state="true"
+			:state="checkPrecoForm()"
 			placeholder="Valor"
 		></b-form-input>
 		<div class="row m-3">
@@ -27,6 +27,7 @@
 				class="col-8"
 				v-model="selected"
 				:options="options"
+				:state="checkImageForm()"
 				v-on:change="selectImg()"
 			>
 			</b-form-select>
@@ -37,6 +38,13 @@
 			@click="salvarEdicaoProduto()"
 		>
 			SALVAR
+		</button>
+		<button
+			class="btn btn-outline-secondary btn-lg m-3"
+			type="button"
+			@click="goToDetails()"
+		>
+			CANCELAR
 		</button>
 	</div>
 </template>
@@ -112,10 +120,15 @@ export default {
 			if (!toEdit) return;
 
 			this.goToDetails();
+		},		
+		checkNomeForm(){
+			return (this.cardData.nome !=  "" && this.cardData.nome.length > 0);
 		},
-		getImgUrl() {
-			let img = require(`@/assets/img/foods/svg/${this.cardData.icon}.svg`);
-			return img;
+		checkPrecoForm(){
+			return (this.cardData.preco > 0);
+		},
+		checkImageForm(){
+			return (this.selected != null);
 		}
 	},
 	created() {

@@ -46,9 +46,7 @@ import {mapGetters} from 'vuex';
 export default {
 	name: "Header",
 	data() {
-		return {
-			totalCarrinho: this.$store.state.getTotalCarrinho()
-		}
+		return {}
 	},
 	methods: {
 		goToHome() {

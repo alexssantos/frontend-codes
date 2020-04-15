@@ -42,48 +42,12 @@ export default new Vuex.Store({
 				"preco": 279,
 				"categoria": "Doce",
 				"icon": "coffee",
-			},	{
-				"id":6,
-				"nome": "Cake",
-				"preco": 279,
-				"categoria": "Doce",
-				"icon": "cake",
-			},{
-				"id":7,
-				"nome": "Apple",
-				"preco": 279,
-				"categoria": "Doce",
-				"icon": "apple",
-			},{
-				"id":8,
-				"nome": "Bread",
-				"preco": 279,
-				"categoria": "Doce",
-				"icon": "bread",
-			},{
-				"id":9,
-				"nome": "Carrot",
-				"preco": 279,
-				"categoria": "Doce",
-				"icon": "carrot",
-			},{
-				"id":10,
-				"nome": "Candy",
-				"preco": 279,
-				"categoria": "Doce",
-				"icon": "candy",
-			},{
-				"id":11,
-				"nome": "Coffee",
-				"preco": 279,
-				"categoria": "Doce",
-				"icon": "coffee",
-			},
+			},	
 		],
 		carrinho: [
 			{
 				produtoId: 0,
-				quantidade: 0
+				quantidade: 3
 			}
 		]
 	},
@@ -95,6 +59,16 @@ export default new Vuex.Store({
 			let produto = state.produtos.find((prod) => prod.id == id);
 			console.log("produto: " + produto + " id: " + id);
 			return produto;
+		},
+		getTotalCarrinho(state){
+			var total = 0;
+			if (state.carrinho.length == 0) return total;
+
+			state.carrinho.map((prod) => {
+				total += prod.quantidade;
+			});
+
+			return total;
 		}
 	},
 	//Mutations são equivalentes a 'Setters'
@@ -106,6 +80,18 @@ export default new Vuex.Store({
 				state.produtos.splice(index, 1);
 			else 
 				console.log(`Produto ID: ${produtoId} não encontrado!`);
+		},
+		addProdutoToCart(state, produtoId){
+			let index = state.carrinho.findIndex((prod) => prod.id == produtoId);
+			
+			if (index >= 0) 
+				state.carrinho[index].quantidade += 1;
+			else {
+				state.carrinho.push({
+					produtoId: produtoId,
+					quantidade: 1
+				})
+			}
 		}
 	}
 })

@@ -51,6 +51,7 @@ export default {
 		adicionarItem(){
 			this.$emit("adicionaProd");
 			console.log("adicionar Item: +1");
+			this.$store.commit('addProdutoToCart', this.cardData.id);
 		},
 		getImgUrl(){			
 			let img = require(`@/assets/img/foods/svg/${this.cardData.icon}.svg`);

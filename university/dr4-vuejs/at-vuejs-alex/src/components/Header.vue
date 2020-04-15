@@ -29,9 +29,9 @@
 					class="btn btn-outline-secondary mx-3 my-2 my-sm-0 btn-cart"
 					type="button"
 				>
-					<i class="fas fa-shopping-cart my-auto mx-2">
-						12
+					<i class="fas fa-shopping-cart my-auto mr-2">
 					</i>
+						{{ totalCarrinho }}
 				</button>
 			</div>
 		</b-navbar>
@@ -39,9 +39,17 @@
 </template>
 
 <script>
+
+import {mapGetters} from 'vuex';
+
 // WARNING: Component Fora do Router-View
 export default {
 	name: "Header",
+	data() {
+		return {
+			totalCarrinho: this.$store.state.getTotalCarrinho()
+		}
+	},
 	methods: {
 		goToHome() {
 			if (this.checkIsHomePage()) return;
@@ -55,7 +63,10 @@ export default {
 		checkIsHomePage() {
 			return this.$route.name == "home";
 		}
-	}
+	},
+	computed: mapGetters({
+		totalCarrinho: 'getTotalCarrinho'
+	}),
 };
 </script>
 
